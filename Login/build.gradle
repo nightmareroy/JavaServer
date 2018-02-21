@@ -57,7 +57,7 @@ dependencies {
 jar {
     
     manifest {
-        attributes 'Main-Class': 'Main.Main'
+        attributes 'Main-Class': 'main.Main'
     }
     
     from {
