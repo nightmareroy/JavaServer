@@ -1,8 +1,11 @@
 package common;
 
-import java.lang.reflect.Method;
+
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.function.Consumer;
-import java.util.function.Function;
+
 
 public class CallBackManager
 {
@@ -16,6 +19,13 @@ public class CallBackManager
 //			this.objects=objects;
 //		}
 //	}
+	
+	public static ExecutorService threadPool;
+	
+	public static void Init(int threadPoolNum)
+	{
+		threadPool = Executors.newFixedThreadPool(threadPoolNum);
+	}
 
 	public static void invokeAsync(Runnable totalCallBack,Runnable...runnables)
 	{
@@ -34,27 +44,83 @@ public class CallBackManager
 		}
 	}
 	
-	public static void invokeSync(Runnable totalCallBack,Consumer<Runnable>...consumers)
+	/**
+	 * callback同时执行,单线程异步
+	 * @param totalCallBack
+	 * @param consumers
+	 */
+	@SafeVarargs
+	public static void invokeAsync(Runnable totalCallBack,Consumer<Runnable>...consumers)
 	{
-//		Consumer<Runnable> tempRunnable=null;
-		consumers[0].accept(()->{
-			consumers[1].accept(()->{
-				consumers[2].accept(()->{
-					consumers[3].accept(()->{
-						
-					});
+		final CountDownLatch countDownLatch=new CountDownLatch(consumers.length);
+
+		for (Consumer<Runnable> consumer : consumers) {
+			consumer.accept(()->{
+				countDownLatch.countDown();
+			});
+			
+			
+		}
+		
+		try {
+			countDownLatch.await();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		totalCallBack.run();
+	}
+	
+	/**
+	 * callback同时执行,多线程异步
+	 * @param totalCallBack
+	 * @param consumers
+	 */
+	@SafeVarargs
+	public static void invokeAsyncMulti(Runnable totalCallBack,Consumer<Runnable>...consumers)
+	{
+		final CountDownLatch countDownLatch=new CountDownLatch(consumers.length);
+
+		for (Consumer<Runnable> consumer : consumers) {
+			threadPool.execute(()->{
+				consumer.accept(()->{
+					countDownLatch.countDown();
 				});
 			});
-		});
+		}
 		
+		try {
+			countDownLatch.await();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
-		
-//		for (int i=0;i<consumers.length;i++) {
-//
-//			consumers[i].accept(()->{});
-//
-//
-//		}
+		totalCallBack.run();
+	}
+	
+	/**
+	 * callback顺序执行
+	 * @param totalCallBack
+	 * @param consumers
+	 */
+	@SafeVarargs
+	public static void invokeSync(Runnable totalCallBack,Consumer<Runnable>...consumers)
+	{
+		for (Consumer<Runnable> consumer : consumers) {
+			final CountDownLatch countDownLatch=new CountDownLatch(1);
+			
+			
+			consumer.accept(()->{
+				countDownLatch.countDown();
+			});
+			
+			try {
+				countDownLatch.await();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		totalCallBack.run();
 	}
 //	
 //	public static void invokeSync(Function<Object, Object>...functions)

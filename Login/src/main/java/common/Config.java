@@ -15,6 +15,9 @@ import org.w3c.dom.NodeList;
 public class Config {
 	public static String resourcesPath="src/main/resources/";
 	
+	//callBackManager
+	public static int callBackManager_threadPoolNum;
+	
 	//mysql
 	public static String mysql_user;
 	public static String mysql_pwd;
@@ -30,6 +33,10 @@ public class Config {
 		try {
 			DocumentBuilder db=dbf.newDocumentBuilder();
 			Document document = db.parse(resourcesPath+"config.xml");
+			
+			//callBackManager
+			Element callBackManager=(Element)document.getElementsByTagName("callBackManager").item(0);
+			callBackManager_threadPoolNum=Integer.parseInt(callBackManager.getAttribute("threadPoolNum"));
 			
 			//mysql
 			Element mysql=(Element)document.getElementsByTagName("mysql").item(0);
