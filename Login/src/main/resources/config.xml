@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<config>
-	<mysql user="liyue" pwd="liyue" url="jdbc:mysql://127.0.0.1:3306/HEX_FIGHT?useSSL=false"></mysql>
-	<loginServer url="127.0.0.1" port="10050"></loginServer>
-	<callBackManager treadPoolNum="10"></callBackManager>
-</config>

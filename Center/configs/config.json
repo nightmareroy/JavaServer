@@ -1,0 +1,14 @@
+{
+	"mysql": {
+		"user": "liyue",
+		"pwd": "liyue",
+		"url": "jdbc:mysql://127.0.0.1:3306/HEX_FIGHT?useSSL=false"
+	},
+	"server": {
+		"url": "127.0.0.1",
+		"port": 10050
+	},
+	"callBackManager": {
+		"threadPoolNum": "10"
+	}
+}
