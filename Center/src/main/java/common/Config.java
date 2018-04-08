@@ -1,74 +1,18 @@
 package common;
-
-
-import java.io.File;
-import java.io.FileReader;
-import java.security.KeyStore.Entry;
-import java.util.Map;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
-import org.json.JSONTokener;
-
-
-//import org.w3c.dom.Document;
-//import org.w3c.dom.Element;
-//import org.w3c.dom.NamedNodeMap;
-//import org.w3c.dom.Node;
-//import org.w3c.dom.NodeList;
-
-
-
 public class Config {
-	
-	
-	
-
-	
-//	//callBackManager
-//	public static int callBackManager_threadPoolNum;
-//	
-//	//mysql
-//	public static String mysql_user;
-//	public static String mysql_pwd;
-//	public static String mysql_url;
-//	
-//	//loginServer
-//	public static String loginServer_url;
-//	public static String loginServer_port;
-//	
-//	public static void Init()
-//	{
-//		DocumentBuilderFactory dbf=DocumentBuilderFactory.newInstance();
-//		try {
-//			DocumentBuilder db=dbf.newDocumentBuilder();
-//			Document document = db.parse(resourcesPath+"config.xml");
-//			
-//			//callBackManager
-//			Element callBackManager=(Element)document.getElementsByTagName("callBackManager").item(0);
-//			callBackManager_threadPoolNum=Integer.parseInt(callBackManager.getAttribute("threadPoolNum"));
-//			
-//			//mysql
-//			Element mysql=(Element)document.getElementsByTagName("mysql").item(0);
-//			mysql_user=mysql.getAttribute("user");
-//			mysql_pwd=mysql.getAttribute("pwd");
-//			mysql_url=mysql.getAttribute("url");
-//
-//			//loginServer
-//			Element loginServer=(Element)document.getElementsByTagName("loginServer").item(0);
-//			loginServer_url=loginServer.getAttribute("url");
-//			loginServer_port=loginServer.getAttribute("port");
-//
-//
-//		}
-//		catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//	}
-
-	
-
+	public class server {
+		public static final int port = 10050;
+		public static final String url = "127.0.0.1";
+	}
+	public class callBackManager {
+		public static final String threadPoolNum = "10";
+	}
+	public class mysql {
+		public class test {
+			public static final String t = "t";
+		}
+		public static final String pwd = "liyue";
+		public static final String user = "liyue";
+		public static final String url = "jdbc:mysql://127.0.0.1:3306/HEX_FIGHT?useSSL=false";
+	}
 }
