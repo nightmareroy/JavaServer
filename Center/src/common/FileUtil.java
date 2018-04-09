@@ -88,6 +88,22 @@ public class FileUtil {
 		write(file,content);
 	}
 	
+	/**
+	 * 创建文件夹
+	 */
+	public static boolean createFolder(File parent,String folderName) {
+		File file=new File(parent, folderName);
+		if(!file.exists()) {
+			Out.info("创建文件夹：",parent+folderName);
+			return file.mkdirs();
+		}
+		return false;
+	}
+	public static boolean createFolder(String parentPath,String folderName) {
+		File file=new File(parentPath);
+		return createFolder(file,folderName);
+	}
+	
 //	/**
 //	 * 复制一个文件 如果是源文件是目录、或者不存在、或者不可读、或者目标文件已存在返回false
 //	 * 
@@ -137,23 +153,74 @@ public class FileUtil {
 //		return false;
 //	}
 //
-//	/**
-//	 * 清除文件所有内容
-//	 * 
-//	 * @param file 要清除内容的文件
-//	 * @return
-//	 */
-//	public static boolean clear(File file) {
-//		PrintWriter writer;
-//		try {
-//			writer = new PrintWriter(new FileWriter(file, false));
-//			writer.close();
-//		} catch (IOException e) {
-//			Out.error("FileUtil clear", e);
-//			return false;
-//		}
-//		return true;
-//	}
+	/**
+	 * 清除文件所有内容
+	 * 
+	 * @param file 要清除内容的文件
+	 * @return
+	 */
+	public static boolean clearFile(File file) {
+		if(!file.isFile()) {
+			return false;
+		}
+		PrintWriter writer;
+		try {
+			writer = new PrintWriter(new FileWriter(file, false));
+			writer.close();
+		} catch (IOException e) {
+			Out.error("FileUtil clear", e);
+			return false;
+		}
+		return true;
+	}
+	
+	/**
+	 * 删除文件夹下的所有文件及文件夹
+	 * 
+	 * @param file
+	 * @return
+	 */
+	public static boolean clearDirectory(File file) {
+		if(!file.isDirectory()) {
+			return false;
+		}
+		File[] files = file.listFiles();
+		for (File file2 : files) {
+			boolean result = deleteDirectory(file2);
+			if(!result) {
+				return false;
+			}
+		}
+		return true;
+	}
+	public static boolean deleteDirectory(String directoryPath) {
+		File file = new File(directoryPath);
+		return clearDirectory(file);
+	}
+	
+	/**
+	 * 删除文件夹以及其下的所有文件及文件夹
+	 * 
+	 * @param file
+	 * @return
+	 */
+	public static boolean deleteDirectory(File file) {
+		if(file.isFile()) {
+			return file.delete();
+		}
+		else if(file.isDirectory()) {
+			File[] files = file.listFiles();
+			for (File file2 : files) {
+				boolean result = deleteDirectory(file2);
+				if(!result) {
+					return false;
+				}
+			}
+			return file.delete();
+		}
+		return false;
+	}
+	
 //
 //	/**
 //	 * 文件转字节数组

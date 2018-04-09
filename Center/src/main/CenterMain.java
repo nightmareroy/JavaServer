@@ -10,7 +10,7 @@ public class CenterMain {
 	public static void main(String [] args){
         
 //		Config.Init();
-//		CallBackManager.Init(Config.callBackManager_threadPoolNum);
+		CallBackManager.Init(Config.CallBackManager.threadPoolNum);
 //		Mysql.Init(Config.mysql_url, Config.mysql_user, Config.mysql_pwd);
 		
         Out.info("启动完毕！");

@@ -15,7 +15,7 @@ import common.Out;
 
 public class ConfigIniter {
 	public static String configsJsonPath="configs/config.json";
-	public static String configsSrcPath="src/main/java/common/Config.java";
+	public static String configsSrcPath="src/common/Config.java";
 	
 	public static void main(String[] args) {
 		
