@@ -11,5 +11,5 @@
 	"CallBackManager": {
 		"threadPoolNum": 10
 	},
-	"DataCOPath": "dataCO"
+	"DataCOPath": "dataCOs"
 }

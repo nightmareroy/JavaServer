@@ -1,6 +1,6 @@
 package common;
 public class Config {
-	public static final String DataCOPath = "dataCO";
+	public static final String DataCOPath = "dataCOs";
 	public class Server {
 		public static final int port = 10050;
 		public static final String url = "127.0.0.1";
