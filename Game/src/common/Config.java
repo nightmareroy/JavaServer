@@ -11,8 +11,10 @@ public class Config {
 	}
 	public class LoginServer {
 		public static final int port = 10050;
+		public static final String url = "127.0.0.1";
 	}
 	public class IdentifyServer {
 		public static final int port = 11050;
+		public static final String url = "127.0.0.1";
 	}
 }

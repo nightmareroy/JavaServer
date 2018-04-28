@@ -4,9 +4,11 @@
 		"pwd": "liyue",
 		"url": "jdbc:mysql://127.0.0.1:3306/test?useSSL=false&serverTimezone=GMT"
 	},
-	"Server": {
-		"url": "127.0.0.1",
+	"LoginServer": {
 		"port": 10050
+	},
+	"IdentifyServer": {
+		"port": 11050
 	},
 	"CallBackManager": {
 		"threadPoolNum": 10
