@@ -1,0 +1,19 @@
+{
+	"Mysql": {
+		"user": "liyue",
+		"pwd": "liyue",
+		"url": "jdbc:mysql://127.0.0.1:3306/test?useSSL=false&serverTimezone=GMT"
+	},
+	"LoginServer": {
+		"url": "127.0.0.1",
+		"port": 10050
+	},
+	"IdentifyServer": {
+		"url": "127.0.0.1",
+		"port": 11050
+	},
+	"CallBackManager": {
+		"threadPoolNum": 10
+	},
+	"DataCOPath": "dataCOs"
+}
