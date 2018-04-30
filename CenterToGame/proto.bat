@@ -1,23 +1,24 @@
 
 ::协议文件路径, 最后不要跟“\”符号
-set SOURCE_FOLDER=./ProtoSrc/Src
+set SOURCE_FOLDER=.\ProtoSrc
 ::如果文件中引用了别的proto文件，IMP_FOLDER是引用的proto文件的目录
-set IMP_FOLDER=./ProtoSrc/Common
+::set IMP_FOLDER=.\ProtoSrc\Common
 ::Java编译器路径
-set JAVA_COMPILER_PATH=./ProtoTool/bin/protoc.exe
+set JAVA_COMPILER_PATH=.\ProtoTool\bin\protoc.exe
 ::Java文件生成路径, 最后不要跟“\”符号
-set JAVA_TARGET_PATH=../Center/proto
+set JAVA_TARGET_PATH=..\Center\proto
 
 
 ::删除之前创建的文件
 del %JAVA_TARGET_PATH%\*.* /f /s /q
+for /f "delims=" %%a in ('dir /ad/b/s %JAVA_TARGET_PATH%') do (rd /q /s "%%a")
 
 
 ::遍历所有文件
 for /f "delims=" %%i in ('dir /b "%SOURCE_FOLDER%\*.proto"') do (
     
-    echo %JAVA_COMPILER_PATH% -I=%SOURCE_FOLDER%  --java_out=%JAVA_TARGET_PATH% %SOURCE_FOLDER%\%%i
-    %JAVA_COMPILER_PATH% --proto_path=%IMP_FOLDER%  --java_out=%JAVA_TARGET_PATH% %SOURCE_FOLDER%\%%i
+    %JAVA_COMPILER_PATH% -I=%SOURCE_FOLDER%  --java_out=%JAVA_TARGET_PATH% %SOURCE_FOLDER%\%%i
+    %JAVA_COMPILER_PATH% --proto_path=%SOURCE_FOLDER%  --java_out=%JAVA_TARGET_PATH% %SOURCE_FOLDER%\%%i
     
 )
 

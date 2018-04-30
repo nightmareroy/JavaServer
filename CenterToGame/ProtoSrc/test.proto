@@ -1,4 +1,6 @@
+import "common.proto";
 package test;
+
 message Test {  
   required int32 id = 1; 
   required int32 value = 2;
