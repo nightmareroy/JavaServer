@@ -1,0 +1,13 @@
+import "common.proto";
+package NetPacket;
+
+message Packet {  
+  required string route = 1; 
+  repeated int32 paramTypeList = 2;//0:double 1:float 2:sint32 3:sint64 4:bool 5:string
+  repeated double double = 3;
+  repeated float float = 4;
+  repeated sint32 sint32 = 5;
+  repeated sint64 sint64 = 6;
+  repeated bool bool = 7;
+  repeated string string = 8;
+} 

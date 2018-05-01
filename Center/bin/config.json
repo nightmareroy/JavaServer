@@ -5,7 +5,13 @@
 		"url": "jdbc:mysql://127.0.0.1:3306/test?useSSL=false&serverTimezone=GMT"
 	},
 	"LoginServer": {
-		"port": 10050
+		"port": 10050,
+		"Packet": {
+			"maxFrameLength":1048576,
+			"lengthFieldOffset":2,
+			"lengthFieldLength":4
+		}
+		
 	},
 	"IdentifyServer": {
 		"port": 11050

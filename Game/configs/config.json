@@ -6,7 +6,15 @@
 	},
 	"LoginServer": {
 		"url": "127.0.0.1",
-		"port": 10050
+		"port": 10050,
+		"Packet": {
+			"maxFrameLength":1048576,
+			"lengthFieldOffset":2,
+			"lengthFieldLength":4
+		}
+	},
+	"LoginClient": {
+		"port": 20050
 	},
 	"IdentifyServer": {
 		"url": "127.0.0.1",

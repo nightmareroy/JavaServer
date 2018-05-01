@@ -10,6 +10,11 @@ public class Config {
 		public static final String url = "jdbc:mysql://127.0.0.1:3306/test?useSSL=false&serverTimezone=GMT";
 	}
 	public class LoginServer {
+		public class Packet {
+			public static final int lengthFieldOffset = 2;
+			public static final int maxFrameLength = 1048576;
+			public static final int lengthFieldLength = 4;
+		}
 		public static final int port = 10050;
 	}
 	public class IdentifyServer {
