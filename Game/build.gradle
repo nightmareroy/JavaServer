@@ -11,7 +11,7 @@ apply plugin: 'java'
 //mainClassName = 'src.test.java.test.test'
 
 sourceSets {  
-    main.java.srcDirs = ['src','configs']  
+    main.java.srcDirs = ['src','configs','proto']  
     //main.resources.srcDirs = ['resources']
 }
 
