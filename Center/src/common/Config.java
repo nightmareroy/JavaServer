@@ -11,7 +11,7 @@ public class Config {
 	}
 	public class LoginServer {
 		public class Packet {
-			public static final int lengthFieldOffset = 2;
+			public static final int lengthFieldOffset = 0;
 			public static final int maxFrameLength = 1048576;
 			public static final int lengthFieldLength = 4;
 		}

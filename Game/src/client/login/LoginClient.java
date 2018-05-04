@@ -55,7 +55,7 @@ public class LoginClient {
 			Out.info("connect");
 			ChannelFuture f = clientBootstrap.connect(Config.LoginServer.url, Config.LoginServer.port).sync();
 			Out.info("connect over");
-			String txt = "ABCDEFG_";
+			String txt = "ABCDEFG";
 			byte[] data = txt.getBytes();
 			ByteBuf bb = Unpooled.buffer();
 			bb.writeBytes(data, 0, data.length);

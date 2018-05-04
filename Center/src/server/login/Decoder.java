@@ -7,9 +7,10 @@ import common.Config;
 import common.Out;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
+import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.codec.ByteToMessageDecoder;
 
-public class Decoder extends ByteToMessageDecoder {
+public class Decoder extends SimpleChannelInboundHandler<String> {
 	
 //	private static final ByteBuf HANDSHAKE;
 //	/**心跳包*/
@@ -36,11 +37,18 @@ public class Decoder extends ByteToMessageDecoder {
 //		head_hb.encode(HEARTBEAT);
 //	}
 	
+//	@Override
+//	protected void decode(ChannelHandlerContext ctx, ByteBuf in, List<Object> out) throws Exception {
+////		ByteBuf byteBuf=(ByteBuf)out.get(0);
+//		Out.debug(out.size());
+//		Out.debug(in.readableBytes());
+//		
+//	}
+
 	@Override
-	protected void decode(ChannelHandlerContext ctx, ByteBuf in, List<Object> out) throws Exception {
-//		ByteBuf byteBuf=(ByteBuf)out.get(0);
-		Out.info(out.size());
-		
+	protected void channelRead0(ChannelHandlerContext ctx, String msg) throws Exception {
+		// TODO Auto-generated method stub
+		Out.debug(msg);
 	}
 
 }
