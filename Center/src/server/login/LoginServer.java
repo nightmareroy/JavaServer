@@ -40,16 +40,19 @@ public class LoginServer {
 //			                .addLast(new ProtobufEncoder())
 				                  
 	//			                .addLast(new ServerHandler());  
-				        	.addLast(new Decoder2(
+				        	.addLast(new LengthFieldBasedFrameDecoder(
 				        			Config.LoginServer.Packet.maxFrameLength,
 					        		Config.LoginServer.Packet.lengthFieldOffset,
-					        		Config.LoginServer.Packet.lengthFieldLength,0,0))
+					        		Config.LoginServer.Packet.lengthFieldLength,
+					        		0,
+					        		Config.LoginServer.Packet.lengthFieldLength))
 //					        .addLast(new LengthFieldBasedFrameDecoder(
 //					        		Config.LoginServer.Packet.maxFrameLength,
 //					        		Config.LoginServer.Packet.lengthFieldOffset,
 //					        		Config.LoginServer.Packet.lengthFieldLength,0,0))
 //					        .addLast(new ObjectEncoder())
-				        	.addLast(new Decoder());
+				        	.addLast(new Decoder())
+				        	.addLast(new Handler());
 				    }
 				});
 			ChannelFuture f = serverBootstrap.bind(Config.LoginServer.port).sync(); 

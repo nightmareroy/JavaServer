@@ -31,7 +31,7 @@ import io.netty.handler.codec.protobuf.ProtobufVarint32LengthFieldPrepender;
 
 public class LoginClient {
 	static Bootstrap clientBootstrap=new Bootstrap();
-	
+	static ChannelFuture f;
 	public static void init() {
 		
         EventLoopGroup workerGroup = new NioEventLoopGroup();
@@ -53,22 +53,22 @@ public class LoginClient {
 //            f.channel().closeFuture().sync();
 //            Out.info("client bind");
 			Out.info("connect");
-			ChannelFuture f = clientBootstrap.connect(Config.LoginServer.url, Config.LoginServer.port).sync();
+			f = clientBootstrap.connect(Config.LoginServer.url, Config.LoginServer.port).sync();
 			Out.info("connect over");
-			String txt = "ABCDEFG";
-			byte[] data = txt.getBytes();
-			ByteBuf bb = Unpooled.buffer();
-			bb.writeBytes(data, 0, data.length);
-			Out.info("writeAndFlush");
-	        f.channel().writeAndFlush(bb);
-	        Out.info("close");
-	        f.channel().closeFuture().sync();
+//			String txt = "ABCDEFG";
+//			byte[] data = txt.getBytes();
+//			ByteBuf bb = Unpooled.buffer();
+//			bb.writeBytes(data, 0, data.length);
+//			Out.info("writeAndFlush");
+//	        f.channel().writeAndFlush(bb);
+//	        Out.info("close");
+//	        f.channel().closeFuture().sync();
 	        
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-            workerGroup.shutdownGracefully();
+            //workerGroup.shutdownGracefully();
             Out.info("login client shutdown");
         }
 		 
@@ -76,7 +76,7 @@ public class LoginClient {
 	
 	public static void request() {
 		try {
-			ChannelFuture f = clientBootstrap.connect(Config.LoginServer.url, Config.LoginServer.port).sync();
+//			ChannelFuture f = clientBootstrap.connect(Config.LoginServer.url, Config.LoginServer.port).sync();
 //			URI uri = new URI("http://"+Config.LoginServer.url+":"+Config.LoginServer.port);
 //			String msg = "Are you ok?";
 //	        DefaultFullHttpRequest request = new DefaultFullHttpRequest(

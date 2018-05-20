@@ -348,7 +348,7 @@ public class Decoder2 extends ByteToMessageDecoder {
         Object decoded = decode(ctx, in);
         
         if (decoded != null) {
-            out.add("123");
+            out.add(decoded);
         }
         Out.debug(out.size());
     }
