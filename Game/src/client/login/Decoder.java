@@ -1,13 +1,10 @@
-package server.login;
+package client.login;
 
 import java.net.InetSocketAddress;
 import java.nio.charset.Charset;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
+
 
 import common.Config;
 import common.Out;
@@ -17,24 +14,18 @@ import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.codec.ByteToMessageDecoder;
 import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
 import io.netty.handler.codec.MessageToMessageDecoder;
-import io.netty.handler.timeout.ReadTimeoutException;
-import server.login.Header.HeaderType;
+import client.login.NettyMessage;
+import client.login.Header.HeaderType;
 
 public class Decoder extends LengthFieldBasedFrameDecoder {
 	
+
+
 	public Decoder(int maxFrameLength, int lengthFieldOffset, int lengthFieldLength, int lengthAdjustment,
 			int initialBytesToStrip) {
 		super(maxFrameLength, lengthFieldOffset, lengthFieldLength, lengthAdjustment, initialBytesToStrip);
 		// TODO Auto-generated constructor stub
 	}
-
-
-
-
-	private Map<String, Boolean> nodeCheck=new HashMap<>();
-
-
-	
 
 	@Override
 	protected Object decode(ChannelHandlerContext ctx, ByteBuf in) throws Exception {
@@ -42,7 +33,7 @@ public class Decoder extends LengthFieldBasedFrameDecoder {
 		if(frame==null) {
 			return null;
 		}
-		
+
 		NettyMessage message=new NettyMessage();
 		Header header=new Header();
 		header.crcCode=frame.readInt();
@@ -75,21 +66,7 @@ public class Decoder extends LengthFieldBasedFrameDecoder {
 			Out.debug(remoteAddress.getAddress().getHostAddress());
 			Out.debug(remoteAddress.toString());
 			
-			//如果开启白名单，检测
-			if(Config.LoginServer.WhiteList.Enable) {
-				if(!Arrays.asList(Config.LoginServer.WhiteList.List).contains(remoteAddress.getAddress().getHostAddress()))
-				{
-					ctx.writeAndFlush(new NettyMessage(header.sessionID,HeaderType.LoginRes,new byte[] {-1}));
-					break;
-				}
-			}
-			//检测重复登录
-			if(nodeCheck.containsKey(remoteAddress.toString())) {
-				ctx.writeAndFlush(new NettyMessage(header.sessionID,HeaderType.LoginRes,new byte[] {-1}));
-				break;
-			}
-			ctx.writeAndFlush(new NettyMessage(header.sessionID,HeaderType.LoginRes,new byte[] {0}));
-			Out.debug("loginres");
+			
 			break;
 		case LoginRes:
 			
@@ -107,23 +84,22 @@ public class Decoder extends LengthFieldBasedFrameDecoder {
 			break;
 		}
 		
+		
 		return null;
 	}
 	
-
+	@Override
+    public void channelActive(ChannelHandlerContext ctx) throws Exception {
+        ctx.fireChannelActive();
+        ctx.writeAndFlush(new NettyMessage(HeaderType.LoginReq));
+        Out.debug("loginreq");
+    }
+	
 	@Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause)
             throws Exception {
-		Out.debug(cause);
-		if(cause instanceof ReadTimeoutException) {
-			InetSocketAddress remoteAddress=(InetSocketAddress)ctx.channel().remoteAddress();
-			
-			nodeCheck.remove(remoteAddress.toString());
-			Out.debug("已移除出节点列表");
-			ctx.close();
-		}
-		
-		
-        //ctx.fireExceptionCaught(cause);
+		ctx.close();
+        ctx.fireExceptionCaught(cause);
     }
+
 }

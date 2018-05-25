@@ -24,7 +24,7 @@ public class GameMain {
 //		Mysql.Init(Config.mysql_url, Config.mysql_user, Config.mysql_pwd);
 		
 		LoginClient.init();
-		LoginClient.request();
+		//LoginClient.request();
 		
         Out.info("启动完毕！");
         

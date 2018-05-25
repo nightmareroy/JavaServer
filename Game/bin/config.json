@@ -9,8 +9,13 @@
 		"port": 10050,
 		"Packet": {
 			"maxFrameLength":1048576,
-			"lengthFieldOffset":2,
+			"lengthFieldOffset":4,
 			"lengthFieldLength":4
+		},
+		"ReadTimeOutSecond":300,
+		"WhiteList": {
+			"Enable":true,
+			"List":["127.0.0.1","localhost"]
 		}
 	},
 	"LoginClient": {

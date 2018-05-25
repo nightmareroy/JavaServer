@@ -1,15 +1,11 @@
 package main;
 
-import java.lang.reflect.Field;
-import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
 import org.json.JSONObject;
 
 
-import common.Config;
 import common.FileUtil;
 import common.Out;
 
@@ -39,7 +35,7 @@ public class ConfigIniter {
 				for(int i=0;i<deep;i++) {
 					fieldSb.append("	");
 				}
-				fieldSb.append(String.format("public class %s {\n",key));
+				fieldSb.append(String.format("public static class %s {\n",key));
 				deep++;
 				genCode(fieldSb, (Map<?, ?>)entry.getValue(),deep);
 				deep--;
@@ -47,6 +43,32 @@ public class ConfigIniter {
 					fieldSb.append("	");
 				}
 				fieldSb.append("}\n");
+			}
+			
+			//列表里面只能放int和string类型
+			else if(entry.getValue() instanceof List<?>) {
+				List<?> list=(List<?>)entry.getValue();
+				if(list.size()>0) {
+					for(int i=0;i<deep;i++) {
+						fieldSb.append("	");
+					}
+					if(list.get(0) instanceof Integer) {
+						fieldSb.append(String.format("public static final int[] %s = new int[] {",key));
+						for (Object item : list) {
+							fieldSb.append((Integer)item);
+							fieldSb.append(",");
+						}
+					}
+					else if(list.get(0) instanceof String) {
+						fieldSb.append(String.format("public static final String[] %s = new String[] {",key));
+						for (Object item : list) {
+							fieldSb.append("\"");
+							fieldSb.append((String)item);
+							fieldSb.append("\",");
+						}
+					}
+					fieldSb.append("};\n");
+				}
 			}
 			else if(entry.getValue() instanceof Integer) {
 				for(int i=0;i<deep;i++) {
@@ -59,6 +81,12 @@ public class ConfigIniter {
 					fieldSb.append("	");
 				}
 				fieldSb.append(String.format("public static final String %s = \"%s\";\n",key,(String)entry.getValue()));
+			}
+			else if(entry.getValue() instanceof Boolean) {
+				for(int i=0;i<deep;i++) {
+					fieldSb.append("	");
+				}
+				fieldSb.append(String.format("public static final Boolean %s = %s;\n",key,(Boolean)entry.getValue()));
 			}
 		}
 	}

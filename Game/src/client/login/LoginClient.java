@@ -27,6 +27,11 @@ import io.netty.handler.codec.protobuf.ProtobufDecoder;
 import io.netty.handler.codec.protobuf.ProtobufEncoder;
 import io.netty.handler.codec.protobuf.ProtobufVarint32FrameDecoder;
 import io.netty.handler.codec.protobuf.ProtobufVarint32LengthFieldPrepender;
+import io.netty.handler.timeout.ReadTimeoutHandler;
+import client.login.Header;
+import client.login.Decoder;
+import client.login.Encoder;
+import client.login.Header.HeaderType;
 
 
 public class LoginClient {
@@ -43,8 +48,18 @@ public class LoginClient {
 				.handler(new ChannelInitializer<SocketChannel>() {  
 				    @Override  
 				    protected void initChannel(SocketChannel ch) throws Exception {  
-				        ch.pipeline()  
-				        	.addLast(new LengthFieldPrepender(Config.LoginServer.Packet.lengthFieldLength));
+				        ch.pipeline()
+					        .addLast(new ReadTimeoutHandler(Config.LoginServer.ReadTimeOutSecond))
+					        .addLast(new Encoder())
+					        .addLast(new Decoder(
+				        			Config.LoginServer.Packet.maxFrameLength,
+					        		Config.LoginServer.Packet.lengthFieldOffset,
+					        		Config.LoginServer.Packet.lengthFieldLength,
+					        		Header.getLengthAdjustment(),
+					        		0
+				        			));
+				        	
+//				        	.addLast(new LengthFieldPrepender(Config.LoginServer.Packet.lengthFieldLength));
 //					        .addLast(new Handler());
 				    }
 				});
@@ -55,6 +70,8 @@ public class LoginClient {
 			Out.info("connect");
 			f = clientBootstrap.connect(Config.LoginServer.url, Config.LoginServer.port).sync();
 			Out.info("connect over");
+			//f.channel().writeAndFlush(new NettyMessage(HeaderType.LoginReq));
+			f.channel().closeFuture().sync();
 //			String txt = "ABCDEFG";
 //			byte[] data = txt.getBytes();
 //			ByteBuf bb = Unpooled.buffer();

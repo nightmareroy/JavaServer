@@ -18,6 +18,7 @@ import io.netty.handler.codec.protobuf.ProtobufVarint32LengthFieldPrepender;
 import io.netty.handler.codec.serialization.ClassResolvers;
 import io.netty.handler.codec.serialization.ObjectDecoder;
 import io.netty.handler.codec.serialization.ObjectEncoder;
+import io.netty.handler.timeout.ReadTimeoutHandler;
 
 public class LoginServer {
 	public static void init() {
@@ -33,26 +34,18 @@ public class LoginServer {
 				.childHandler(new ChannelInitializer<SocketChannel>() {  
 				    @Override  
 				    protected void initChannel(SocketChannel ch) throws Exception {  
-				        ch.pipeline()  
-//			                .addLast(new ProtobufVarint32FrameDecoder())  
-//			                .addLast(new ProtobufDecoder(TestOuterClass.Test.getDefaultInstance()))
-//			                .addLast(new ProtobufVarint32LengthFieldPrepender())
-//			                .addLast(new ProtobufEncoder())
-				                  
-	//			                .addLast(new ServerHandler());  
-				        	.addLast(new LengthFieldBasedFrameDecoder(
+				        ch.pipeline()
+				        	.addLast(new ReadTimeoutHandler(Config.LoginServer.ReadTimeOutSecond))
+				        	.addLast(new Encoder())
+				        	.addLast(new Decoder(
 				        			Config.LoginServer.Packet.maxFrameLength,
 					        		Config.LoginServer.Packet.lengthFieldOffset,
 					        		Config.LoginServer.Packet.lengthFieldLength,
-					        		0,
-					        		Config.LoginServer.Packet.lengthFieldLength))
-//					        .addLast(new LengthFieldBasedFrameDecoder(
-//					        		Config.LoginServer.Packet.maxFrameLength,
-//					        		Config.LoginServer.Packet.lengthFieldOffset,
-//					        		Config.LoginServer.Packet.lengthFieldLength,0,0))
-//					        .addLast(new ObjectEncoder())
-				        	.addLast(new Decoder())
-				        	.addLast(new Handler());
+					        		Header.getLengthAdjustment(),
+					        		0
+				        			));
+				        	
+//				        	.addLast(new Handler());
 				    }
 				});
 			ChannelFuture f = serverBootstrap.bind(Config.LoginServer.port).sync(); 
