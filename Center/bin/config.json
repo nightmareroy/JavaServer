@@ -4,22 +4,20 @@
 		"pwd": "liyue",
 		"url": "jdbc:mysql://127.0.0.1:3306/test?useSSL=false&serverTimezone=GMT"
 	},
-	"LoginServer": {
+	"CenterServer": {
 		"port": 10050,
 		"Packet": {
 			"maxFrameLength":1048576,
 			"lengthFieldOffset":4,
-			"lengthFieldLength":4
+			"lengthFieldLength":4,
+			"crcCode":1024
 		},
-		"ReadTimeOutSecond":300,
+		"ReadTimeOutSecond":10,
 		"WhiteList": {
 			"Enable":true,
 			"List":["127.0.0.1","localhost"]
 		}
 		
-	},
-	"IdentifyServer": {
-		"port": 11050
 	},
 	"CallBackManager": {
 		"threadPoolNum": 10

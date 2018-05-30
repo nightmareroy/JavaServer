@@ -5,7 +5,7 @@ import common.Config;
 import common.Mysql;
 import common.Out;
 import io.netty.util.internal.shaded.org.jctools.queues.MessagePassingQueue.Consumer;
-import server.login.LoginServer;
+import server.center.LoginServer;
 
 
 /**
@@ -22,10 +22,10 @@ public class CenterMain {
 //		CallBackManager.Init(Config.CallBackManager.threadPoolNum);
 //		Mysql.Init(Config.mysql_url, Config.mysql_user, Config.mysql_pwd);
 		
-		LoginServer.init();
+		LoginServer.start();
 		
 		
-        Out.info("启动完毕！");
+        
         
 
     }

@@ -1,0 +1,5 @@
+package common;
+message CommonNode {  
+  required int32 id = 1; 
+  required int32 value = 2;
+} 
