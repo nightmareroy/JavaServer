@@ -1,12 +1,13 @@
+syntax = "proto2";
 import "common.proto";
 package test;
 
 message TestRequest {  
-	required int testId = 1; 
+	required int32 testId = 1; 
 }
 
 message TestResponse {  
-	required CommonNode testCommonNode = 1; 
+	required common.CommonNode testCommonNode = 1; 
 }
 
 service TestService {
