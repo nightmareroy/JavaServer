@@ -1,15 +1,18 @@
-syntax = "proto2";
+syntax = "proto3";
 import "common.proto";
 package test;
 
 message Test2Request {  
-	required int32 testId = 1; 
+	int32 testId = 1; 
 }
 
 message Test2Response {  
-	required common.CommonNode testCommonNode = 1; 
+	common.CommonNode testCommonNode = 1; 
 }
 
+option java_generic_services = true;
+
+
 service Test2Service {
-	rpc Test2 (Test2Request) returns (Test2Response);
+	rpc Test222 (Test2Request) returns (Test2Response);
 }

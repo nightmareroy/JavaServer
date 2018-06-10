@@ -19,11 +19,7 @@ public final class Packet {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>required int32 testId = 1;</code>
-     */
-    boolean hasTestId();
-    /**
-     * <code>required int32 testId = 1;</code>
+     * <code>int32 testId = 1;</code>
      */
     int getTestId();
   }
@@ -68,14 +64,14 @@ public final class Packet {
               done = true;
               break;
             default: {
-              if (!parseUnknownField(
+              if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
             }
             case 8: {
-              bitField0_ |= 0x00000001;
+
               testId_ = input.readInt32();
               break;
             }
@@ -103,17 +99,10 @@ public final class Packet {
               test.Packet.TestRequest.class, test.Packet.TestRequest.Builder.class);
     }
 
-    private int bitField0_;
     public static final int TESTID_FIELD_NUMBER = 1;
     private int testId_;
     /**
-     * <code>required int32 testId = 1;</code>
-     */
-    public boolean hasTestId() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
-    }
-    /**
-     * <code>required int32 testId = 1;</code>
+     * <code>int32 testId = 1;</code>
      */
     public int getTestId() {
       return testId_;
@@ -125,17 +114,13 @@ public final class Packet {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
-      if (!hasTestId()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
       memoizedIsInitialized = 1;
       return true;
     }
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (testId_ != 0) {
         output.writeInt32(1, testId_);
       }
       unknownFields.writeTo(output);
@@ -146,7 +131,7 @@ public final class Packet {
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (testId_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, testId_);
       }
@@ -166,11 +151,8 @@ public final class Packet {
       test.Packet.TestRequest other = (test.Packet.TestRequest) obj;
 
       boolean result = true;
-      result = result && (hasTestId() == other.hasTestId());
-      if (hasTestId()) {
-        result = result && (getTestId()
-            == other.getTestId());
-      }
+      result = result && (getTestId()
+          == other.getTestId());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -182,10 +164,8 @@ public final class Packet {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasTestId()) {
-        hash = (37 * hash) + TESTID_FIELD_NUMBER;
-        hash = (53 * hash) + getTestId();
-      }
+      hash = (37 * hash) + TESTID_FIELD_NUMBER;
+      hash = (53 * hash) + getTestId();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -316,7 +296,7 @@ public final class Packet {
       public Builder clear() {
         super.clear();
         testId_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000001);
+
         return this;
       }
 
@@ -339,13 +319,7 @@ public final class Packet {
 
       public test.Packet.TestRequest buildPartial() {
         test.Packet.TestRequest result = new test.Packet.TestRequest(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
         result.testId_ = testId_;
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -387,7 +361,7 @@ public final class Packet {
 
       public Builder mergeFrom(test.Packet.TestRequest other) {
         if (other == test.Packet.TestRequest.getDefaultInstance()) return this;
-        if (other.hasTestId()) {
+        if (other.getTestId() != 0) {
           setTestId(other.getTestId());
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -396,9 +370,6 @@ public final class Packet {
       }
 
       public final boolean isInitialized() {
-        if (!hasTestId()) {
-          return false;
-        }
         return true;
       }
 
@@ -419,42 +390,35 @@ public final class Packet {
         }
         return this;
       }
-      private int bitField0_;
 
       private int testId_ ;
       /**
-       * <code>required int32 testId = 1;</code>
-       */
-      public boolean hasTestId() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      /**
-       * <code>required int32 testId = 1;</code>
+       * <code>int32 testId = 1;</code>
        */
       public int getTestId() {
         return testId_;
       }
       /**
-       * <code>required int32 testId = 1;</code>
+       * <code>int32 testId = 1;</code>
        */
       public Builder setTestId(int value) {
-        bitField0_ |= 0x00000001;
+        
         testId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required int32 testId = 1;</code>
+       * <code>int32 testId = 1;</code>
        */
       public Builder clearTestId() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         testId_ = 0;
         onChanged();
         return this;
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       public final Builder mergeUnknownFields(
@@ -476,7 +440,7 @@ public final class Packet {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<TestRequest>
+    private static final com.google.protobuf.Parser<TestRequest>
         PARSER = new com.google.protobuf.AbstractParser<TestRequest>() {
       public TestRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -506,15 +470,15 @@ public final class Packet {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>required .common.CommonNode testCommonNode = 1;</code>
+     * <code>.common.CommonNode testCommonNode = 1;</code>
      */
     boolean hasTestCommonNode();
     /**
-     * <code>required .common.CommonNode testCommonNode = 1;</code>
+     * <code>.common.CommonNode testCommonNode = 1;</code>
      */
     common.Common.CommonNode getTestCommonNode();
     /**
-     * <code>required .common.CommonNode testCommonNode = 1;</code>
+     * <code>.common.CommonNode testCommonNode = 1;</code>
      */
     common.Common.CommonNodeOrBuilder getTestCommonNodeOrBuilder();
   }
@@ -558,7 +522,7 @@ public final class Packet {
               done = true;
               break;
             default: {
-              if (!parseUnknownField(
+              if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -566,15 +530,15 @@ public final class Packet {
             }
             case 10: {
               common.Common.CommonNode.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000001) == 0x00000001)) {
+              if (testCommonNode_ != null) {
                 subBuilder = testCommonNode_.toBuilder();
               }
-              testCommonNode_ = input.readMessage(common.Common.CommonNode.PARSER, extensionRegistry);
+              testCommonNode_ = input.readMessage(common.Common.CommonNode.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(testCommonNode_);
                 testCommonNode_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00000001;
+
               break;
             }
           }
@@ -601,26 +565,25 @@ public final class Packet {
               test.Packet.TestResponse.class, test.Packet.TestResponse.Builder.class);
     }
 
-    private int bitField0_;
     public static final int TESTCOMMONNODE_FIELD_NUMBER = 1;
     private common.Common.CommonNode testCommonNode_;
     /**
-     * <code>required .common.CommonNode testCommonNode = 1;</code>
+     * <code>.common.CommonNode testCommonNode = 1;</code>
      */
     public boolean hasTestCommonNode() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
+      return testCommonNode_ != null;
     }
     /**
-     * <code>required .common.CommonNode testCommonNode = 1;</code>
+     * <code>.common.CommonNode testCommonNode = 1;</code>
      */
     public common.Common.CommonNode getTestCommonNode() {
       return testCommonNode_ == null ? common.Common.CommonNode.getDefaultInstance() : testCommonNode_;
     }
     /**
-     * <code>required .common.CommonNode testCommonNode = 1;</code>
+     * <code>.common.CommonNode testCommonNode = 1;</code>
      */
     public common.Common.CommonNodeOrBuilder getTestCommonNodeOrBuilder() {
-      return testCommonNode_ == null ? common.Common.CommonNode.getDefaultInstance() : testCommonNode_;
+      return getTestCommonNode();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -629,21 +592,13 @@ public final class Packet {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
-      if (!hasTestCommonNode()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!getTestCommonNode().isInitialized()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
       memoizedIsInitialized = 1;
       return true;
     }
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (testCommonNode_ != null) {
         output.writeMessage(1, getTestCommonNode());
       }
       unknownFields.writeTo(output);
@@ -654,7 +609,7 @@ public final class Packet {
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (testCommonNode_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getTestCommonNode());
       }
@@ -819,7 +774,6 @@ public final class Packet {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
-          getTestCommonNodeFieldBuilder();
         }
       }
       public Builder clear() {
@@ -827,9 +781,9 @@ public final class Packet {
         if (testCommonNodeBuilder_ == null) {
           testCommonNode_ = null;
         } else {
-          testCommonNodeBuilder_.clear();
+          testCommonNode_ = null;
+          testCommonNodeBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -852,17 +806,11 @@ public final class Packet {
 
       public test.Packet.TestResponse buildPartial() {
         test.Packet.TestResponse result = new test.Packet.TestResponse(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
         if (testCommonNodeBuilder_ == null) {
           result.testCommonNode_ = testCommonNode_;
         } else {
           result.testCommonNode_ = testCommonNodeBuilder_.build();
         }
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -913,12 +861,6 @@ public final class Packet {
       }
 
       public final boolean isInitialized() {
-        if (!hasTestCommonNode()) {
-          return false;
-        }
-        if (!getTestCommonNode().isInitialized()) {
-          return false;
-        }
         return true;
       }
 
@@ -939,19 +881,18 @@ public final class Packet {
         }
         return this;
       }
-      private int bitField0_;
 
       private common.Common.CommonNode testCommonNode_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
           common.Common.CommonNode, common.Common.CommonNode.Builder, common.Common.CommonNodeOrBuilder> testCommonNodeBuilder_;
       /**
-       * <code>required .common.CommonNode testCommonNode = 1;</code>
+       * <code>.common.CommonNode testCommonNode = 1;</code>
        */
       public boolean hasTestCommonNode() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
+        return testCommonNodeBuilder_ != null || testCommonNode_ != null;
       }
       /**
-       * <code>required .common.CommonNode testCommonNode = 1;</code>
+       * <code>.common.CommonNode testCommonNode = 1;</code>
        */
       public common.Common.CommonNode getTestCommonNode() {
         if (testCommonNodeBuilder_ == null) {
@@ -961,7 +902,7 @@ public final class Packet {
         }
       }
       /**
-       * <code>required .common.CommonNode testCommonNode = 1;</code>
+       * <code>.common.CommonNode testCommonNode = 1;</code>
        */
       public Builder setTestCommonNode(common.Common.CommonNode value) {
         if (testCommonNodeBuilder_ == null) {
@@ -973,11 +914,11 @@ public final class Packet {
         } else {
           testCommonNodeBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000001;
+
         return this;
       }
       /**
-       * <code>required .common.CommonNode testCommonNode = 1;</code>
+       * <code>.common.CommonNode testCommonNode = 1;</code>
        */
       public Builder setTestCommonNode(
           common.Common.CommonNode.Builder builderForValue) {
@@ -987,17 +928,15 @@ public final class Packet {
         } else {
           testCommonNodeBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000001;
+
         return this;
       }
       /**
-       * <code>required .common.CommonNode testCommonNode = 1;</code>
+       * <code>.common.CommonNode testCommonNode = 1;</code>
        */
       public Builder mergeTestCommonNode(common.Common.CommonNode value) {
         if (testCommonNodeBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) == 0x00000001) &&
-              testCommonNode_ != null &&
-              testCommonNode_ != common.Common.CommonNode.getDefaultInstance()) {
+          if (testCommonNode_ != null) {
             testCommonNode_ =
               common.Common.CommonNode.newBuilder(testCommonNode_).mergeFrom(value).buildPartial();
           } else {
@@ -1007,32 +946,33 @@ public final class Packet {
         } else {
           testCommonNodeBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
+
         return this;
       }
       /**
-       * <code>required .common.CommonNode testCommonNode = 1;</code>
+       * <code>.common.CommonNode testCommonNode = 1;</code>
        */
       public Builder clearTestCommonNode() {
         if (testCommonNodeBuilder_ == null) {
           testCommonNode_ = null;
           onChanged();
         } else {
-          testCommonNodeBuilder_.clear();
+          testCommonNode_ = null;
+          testCommonNodeBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
+
         return this;
       }
       /**
-       * <code>required .common.CommonNode testCommonNode = 1;</code>
+       * <code>.common.CommonNode testCommonNode = 1;</code>
        */
       public common.Common.CommonNode.Builder getTestCommonNodeBuilder() {
-        bitField0_ |= 0x00000001;
+        
         onChanged();
         return getTestCommonNodeFieldBuilder().getBuilder();
       }
       /**
-       * <code>required .common.CommonNode testCommonNode = 1;</code>
+       * <code>.common.CommonNode testCommonNode = 1;</code>
        */
       public common.Common.CommonNodeOrBuilder getTestCommonNodeOrBuilder() {
         if (testCommonNodeBuilder_ != null) {
@@ -1043,7 +983,7 @@ public final class Packet {
         }
       }
       /**
-       * <code>required .common.CommonNode testCommonNode = 1;</code>
+       * <code>.common.CommonNode testCommonNode = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           common.Common.CommonNode, common.Common.CommonNode.Builder, common.Common.CommonNodeOrBuilder> 
@@ -1060,7 +1000,7 @@ public final class Packet {
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       public final Builder mergeUnknownFields(
@@ -1082,7 +1022,7 @@ public final class Packet {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<TestResponse>
+    private static final com.google.protobuf.Parser<TestResponse>
         PARSER = new com.google.protobuf.AbstractParser<TestResponse>() {
       public TestResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -1127,10 +1067,10 @@ public final class Packet {
   static {
     java.lang.String[] descriptorData = {
       "\n\014packet.proto\022\004test\032\014common.proto\"\035\n\013Te" +
-      "stRequest\022\016\n\006testId\030\001 \002(\005\":\n\014TestRespons" +
-      "e\022*\n\016testCommonNode\030\001 \002(\0132\022.common.Commo" +
+      "stRequest\022\016\n\006testId\030\001 \001(\005\":\n\014TestRespons" +
+      "e\022*\n\016testCommonNode\030\001 \001(\0132\022.common.Commo" +
       "nNode2<\n\013TestService\022-\n\004Test\022\021.test.Test" +
-      "Request\032\022.test.TestResponse"
+      "Request\032\022.test.TestResponseb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

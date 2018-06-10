@@ -19,20 +19,12 @@ public final class Common {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>required int32 id = 1;</code>
-     */
-    boolean hasId();
-    /**
-     * <code>required int32 id = 1;</code>
+     * <code>int32 id = 1;</code>
      */
     int getId();
 
     /**
-     * <code>required int32 value = 2;</code>
-     */
-    boolean hasValue();
-    /**
-     * <code>required int32 value = 2;</code>
+     * <code>int32 value = 2;</code>
      */
     int getValue();
   }
@@ -78,19 +70,19 @@ public final class Common {
               done = true;
               break;
             default: {
-              if (!parseUnknownField(
+              if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
             }
             case 8: {
-              bitField0_ |= 0x00000001;
+
               id_ = input.readInt32();
               break;
             }
             case 16: {
-              bitField0_ |= 0x00000002;
+
               value_ = input.readInt32();
               break;
             }
@@ -118,17 +110,10 @@ public final class Common {
               common.Common.CommonNode.class, common.Common.CommonNode.Builder.class);
     }
 
-    private int bitField0_;
     public static final int ID_FIELD_NUMBER = 1;
     private int id_;
     /**
-     * <code>required int32 id = 1;</code>
-     */
-    public boolean hasId() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
-    }
-    /**
-     * <code>required int32 id = 1;</code>
+     * <code>int32 id = 1;</code>
      */
     public int getId() {
       return id_;
@@ -137,13 +122,7 @@ public final class Common {
     public static final int VALUE_FIELD_NUMBER = 2;
     private int value_;
     /**
-     * <code>required int32 value = 2;</code>
-     */
-    public boolean hasValue() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    /**
-     * <code>required int32 value = 2;</code>
+     * <code>int32 value = 2;</code>
      */
     public int getValue() {
       return value_;
@@ -155,24 +134,16 @@ public final class Common {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
-      if (!hasId()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasValue()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
       memoizedIsInitialized = 1;
       return true;
     }
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (id_ != 0) {
         output.writeInt32(1, id_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (value_ != 0) {
         output.writeInt32(2, value_);
       }
       unknownFields.writeTo(output);
@@ -183,11 +154,11 @@ public final class Common {
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (id_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, id_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (value_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(2, value_);
       }
@@ -207,16 +178,10 @@ public final class Common {
       common.Common.CommonNode other = (common.Common.CommonNode) obj;
 
       boolean result = true;
-      result = result && (hasId() == other.hasId());
-      if (hasId()) {
-        result = result && (getId()
-            == other.getId());
-      }
-      result = result && (hasValue() == other.hasValue());
-      if (hasValue()) {
-        result = result && (getValue()
-            == other.getValue());
-      }
+      result = result && (getId()
+          == other.getId());
+      result = result && (getValue()
+          == other.getValue());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -228,14 +193,10 @@ public final class Common {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasId()) {
-        hash = (37 * hash) + ID_FIELD_NUMBER;
-        hash = (53 * hash) + getId();
-      }
-      if (hasValue()) {
-        hash = (37 * hash) + VALUE_FIELD_NUMBER;
-        hash = (53 * hash) + getValue();
-      }
+      hash = (37 * hash) + ID_FIELD_NUMBER;
+      hash = (53 * hash) + getId();
+      hash = (37 * hash) + VALUE_FIELD_NUMBER;
+      hash = (53 * hash) + getValue();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -366,9 +327,9 @@ public final class Common {
       public Builder clear() {
         super.clear();
         id_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000001);
+
         value_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000002);
+
         return this;
       }
 
@@ -391,17 +352,8 @@ public final class Common {
 
       public common.Common.CommonNode buildPartial() {
         common.Common.CommonNode result = new common.Common.CommonNode(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
         result.id_ = id_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
         result.value_ = value_;
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -443,10 +395,10 @@ public final class Common {
 
       public Builder mergeFrom(common.Common.CommonNode other) {
         if (other == common.Common.CommonNode.getDefaultInstance()) return this;
-        if (other.hasId()) {
+        if (other.getId() != 0) {
           setId(other.getId());
         }
-        if (other.hasValue()) {
+        if (other.getValue() != 0) {
           setValue(other.getValue());
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -455,12 +407,6 @@ public final class Common {
       }
 
       public final boolean isInitialized() {
-        if (!hasId()) {
-          return false;
-        }
-        if (!hasValue()) {
-          return false;
-        }
         return true;
       }
 
@@ -481,35 +427,28 @@ public final class Common {
         }
         return this;
       }
-      private int bitField0_;
 
       private int id_ ;
       /**
-       * <code>required int32 id = 1;</code>
-       */
-      public boolean hasId() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      /**
-       * <code>required int32 id = 1;</code>
+       * <code>int32 id = 1;</code>
        */
       public int getId() {
         return id_;
       }
       /**
-       * <code>required int32 id = 1;</code>
+       * <code>int32 id = 1;</code>
        */
       public Builder setId(int value) {
-        bitField0_ |= 0x00000001;
+        
         id_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required int32 id = 1;</code>
+       * <code>int32 id = 1;</code>
        */
       public Builder clearId() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         id_ = 0;
         onChanged();
         return this;
@@ -517,38 +456,32 @@ public final class Common {
 
       private int value_ ;
       /**
-       * <code>required int32 value = 2;</code>
-       */
-      public boolean hasValue() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      /**
-       * <code>required int32 value = 2;</code>
+       * <code>int32 value = 2;</code>
        */
       public int getValue() {
         return value_;
       }
       /**
-       * <code>required int32 value = 2;</code>
+       * <code>int32 value = 2;</code>
        */
       public Builder setValue(int value) {
-        bitField0_ |= 0x00000002;
+        
         value_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required int32 value = 2;</code>
+       * <code>int32 value = 2;</code>
        */
       public Builder clearValue() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         value_ = 0;
         onChanged();
         return this;
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       public final Builder mergeUnknownFields(
@@ -570,7 +503,7 @@ public final class Common {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<CommonNode>
+    private static final com.google.protobuf.Parser<CommonNode>
         PARSER = new com.google.protobuf.AbstractParser<CommonNode>() {
       public CommonNode parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -610,7 +543,7 @@ public final class Common {
   static {
     java.lang.String[] descriptorData = {
       "\n\014common.proto\022\006common\"\'\n\nCommonNode\022\n\n\002" +
-      "id\030\001 \002(\005\022\r\n\005value\030\002 \002(\005"
+      "id\030\001 \001(\005\022\r\n\005value\030\002 \001(\005b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

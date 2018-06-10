@@ -47,7 +47,7 @@ public class Decoder extends LengthFieldBasedFrameDecoder {
 		}
 
 		
-		Packet message=new Packet();
+		Packet message=new Packet(ctx.channel());
 		Header header=new Header();
 		header.crcCode=frame.readInt();
 		header.length=frame.readInt();
@@ -86,26 +86,26 @@ public class Decoder extends LengthFieldBasedFrameDecoder {
 			if(Config.CenterServer.WhiteList.Enable) {
 				if(!Arrays.asList(Config.CenterServer.WhiteList.List).contains(remoteAddress.getAddress().getHostAddress()))
 				{
-					ctx.writeAndFlush(new Packet(header.sessionID,HeaderType.LoginRes,DataUtil.int2bytes(-1)));
+					ctx.writeAndFlush(new Packet(header.sessionID,HeaderType.LoginRes,DataUtil.int2bytes(-1),ctx.channel()));
 					break;
 				}
 			}
 			//检测重复登录
 			if(nodeCheck.containsKey(remoteAddress.toString())) {
-				ctx.writeAndFlush(new Packet(header.sessionID,HeaderType.LoginRes,DataUtil.int2bytes(-1)));
+				ctx.writeAndFlush(new Packet(header.sessionID,HeaderType.LoginRes,DataUtil.int2bytes(-1),ctx.channel()));
 				break;
 			}
 			
 			nodeCheck.put(remoteAddress.toString(), true);
 			
-			ctx.writeAndFlush(new Packet(header.sessionID,HeaderType.LoginRes,DataUtil.int2bytes(0)));
+			ctx.writeAndFlush(new Packet(header.sessionID,HeaderType.LoginRes,DataUtil.int2bytes(0),ctx.channel()));
 			Out.debug(remoteAddress,"登录");
 			break;
 		case LoginRes:
 			
 			break;
 		case BeatReq:
-			ctx.writeAndFlush(new Packet(HeaderType.BeatRes));
+			ctx.writeAndFlush(new Packet(HeaderType.BeatRes,ctx.channel()));
 			break;
 		case BeatRes:
 			
