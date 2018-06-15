@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+import "packet.proto";
+import "packet2.proto";
+
+package test;
+
+option java_generic_services = true;
+service Handle {
+	rpc Test (TestRequest) returns (TestResponse);
+	rpc Test222 (Test2Request) returns (Test2Response);
+}

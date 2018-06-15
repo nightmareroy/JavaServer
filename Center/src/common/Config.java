@@ -9,6 +9,12 @@ public class Config {
 			public static final int lengthFieldLength = 4;
 		}
 		public static final int ReadTimeOutSecond = 10;
+		public static class DispatcherQueue {
+			public static final int ThreadCount = 3;
+			public static final Boolean MonitorEnable = false;
+			public static final int Capacity = 100000;
+			public static final int WarnCount = 80000;
+		}
 		public static final int port = 10050;
 		public static class WhiteList {
 			public static final Boolean Enable = true;

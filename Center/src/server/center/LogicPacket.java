@@ -2,6 +2,8 @@ package server.center;
 
 import java.util.Arrays;
 
+import com.google.protobuf.Descriptors.MethodDescriptor;
+import com.google.protobuf.MessageLite;
 import com.google.protobuf.MessageOrBuilder;
 
 import common.DataUtil;
@@ -27,16 +29,17 @@ public class LogicPacket extends Packet {
 		
 		byte[] routeByte=Arrays.copyOfRange(body, 4, 4 + routeLength);
 		
-		route=new String(routeByte);
-		
-		
-		byte[] protobufByte=Arrays.copyOfRange(body, 4, body.length-4);
+//		route=new String(routeByte);
+//		
+//		
+//		byte[] protobufByte=Arrays.copyOfRange(body, 4, body.length-4);
 		
 		
 	}
-	public String route;
+//	public String route;
+	public MethodDescriptor route;
 //	public 
-	public MessageOrBuilder content;
+	public MessageLite content;
 	
 	
 }

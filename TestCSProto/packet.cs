@@ -26,9 +26,7 @@ namespace Test {
           string.Concat(
             "CgxwYWNrZXQucHJvdG8SBHRlc3QaDGNvbW1vbi5wcm90byIdCgtUZXN0UmVx",
             "dWVzdBIOCgZ0ZXN0SWQYASABKAUiOgoMVGVzdFJlc3BvbnNlEioKDnRlc3RD",
-            "b21tb25Ob2RlGAEgASgLMhIuY29tbW9uLkNvbW1vbk5vZGUyPAoLVGVzdFNl",
-            "cnZpY2USLQoEVGVzdBIRLnRlc3QuVGVzdFJlcXVlc3QaEi50ZXN0LlRlc3RS",
-            "ZXNwb25zZWIGcHJvdG8z"));
+            "b21tb25Ob2RlGAEgASgLMhIuY29tbW9uLkNvbW1vbk5vZGViBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Common.CommonReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {

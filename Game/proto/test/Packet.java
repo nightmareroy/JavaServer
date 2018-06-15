@@ -1069,8 +1069,7 @@ public final class Packet {
       "\n\014packet.proto\022\004test\032\014common.proto\"\035\n\013Te" +
       "stRequest\022\016\n\006testId\030\001 \001(\005\":\n\014TestRespons" +
       "e\022*\n\016testCommonNode\030\001 \001(\0132\022.common.Commo" +
-      "nNode2<\n\013TestService\022-\n\004Test\022\021.test.Test" +
-      "Request\032\022.test.TestResponseb\006proto3"
+      "nNodeb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

@@ -16,6 +16,12 @@
 		"WhiteList": {
 			"Enable":true,
 			"List":["127.0.0.1","localhost"]
+		},
+		"DispatcherQueue": {
+			"ThreadCount": 3,
+			"Capacity": 100000,
+			"WarnCount": 80000,
+			"MonitorEnable": false
 		}
 		
 	},

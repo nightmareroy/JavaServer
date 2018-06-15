@@ -9,7 +9,3 @@ message TestRequest {
 message TestResponse {  
 	common.CommonNode testCommonNode = 1; 
 }
-
-service TestService {
-	rpc Test (TestRequest) returns (TestResponse);
-}
