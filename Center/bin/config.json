@@ -20,8 +20,7 @@
 		"DispatcherQueue": {
 			"ThreadCount": 3,
 			"Capacity": 100000,
-			"WarnCount": 80000,
-			"MonitorEnable": false
+			"WarnCount": 80000
 		}
 		
 	},

@@ -11,6 +11,11 @@ import io.netty.channel.Channel;
 
 
 public class LogicPacket extends Packet {
+	
+	public String route;
+//	public 
+	public byte[] content;
+	
 	public LogicPacket(Channel channel) throws Exception{
 		super(channel);
 		
@@ -28,18 +33,15 @@ public class LogicPacket extends Packet {
 		}
 		
 		byte[] routeByte=Arrays.copyOfRange(body, 4, 4 + routeLength);
+		route=new String(routeByte);
 		
-//		route=new String(routeByte);
-//		
-//		
-//		byte[] protobufByte=Arrays.copyOfRange(body, 4, body.length-4);
+		content=Arrays.copyOfRange(body, 4, body.length-4);
+
 		
 		
 	}
-//	public String route;
-	public MethodDescriptor route;
-//	public 
-	public MessageLite content;
+
+
 	
 	
 }

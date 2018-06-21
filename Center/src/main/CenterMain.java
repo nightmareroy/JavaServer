@@ -1,13 +1,17 @@
 package main;
 
 import com.google.protobuf.Descriptors.Descriptor;
+import com.google.protobuf.Descriptors.MethodDescriptor;
 
 import common.CallBackManager;
 import common.Config;
 import common.Mysql;
 import common.Out;
 import io.netty.util.internal.shaded.org.jctools.queues.MessagePassingQueue.Consumer;
+import server.center.LogicDispatcher;
 import server.center.LoginServer;
+import test.Services;
+import test.Packet.TestRequest;
 import test.Packet2.Test2Service;
 
 
@@ -28,9 +32,11 @@ public class CenterMain {
 		LoginServer.start();
 		
 		//Descriptor descriptor = Test2Service.getDescriptor().getMethods().get(0).getInputType();
-
-        //Out.debug(descriptor);
-
+		
+		LogicDispatcher lDispatcher = new LogicDispatcher();
+		lDispatcher.init();
+        
+//        Out.debug(md.getInputType());
     }
 
 }

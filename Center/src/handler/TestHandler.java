@@ -7,10 +7,11 @@ import test.Packet.TestResponse;
 
 public class TestHandler implements IHandler<TestRequest,TestResponse> {
 
+
 	@Override
-	public TestResponse handler(TestRequest t) {
+	public TestResponse handle(byte[] requestBytes) {
 		// TODO Auto-generated method stub
-		return TestResponse.newBuilder().build();
+		return null;
 	}
 
 }
