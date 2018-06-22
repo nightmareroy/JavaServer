@@ -23,12 +23,14 @@ public class LogicDispatcher implements Runnable {
 	
 	private BlockingQueue<LogicPacket> blockingQueue = new LinkedBlockingQueue<LogicPacket>(Config.CenterServer.DispatcherQueue.Capacity);
 	public static Map<String, Class<?>> handlerClassMap = new HashMap<>();
+	public static Map<String, MethodDescriptor> handlerDescriptorMap=new HashMap<>();
 	private Map<String, Object> handlerMap = new HashMap<>();
 	
 	static {
-		List<MethodDescriptor> mdList = Services.Handle.getDescriptor().getMethods();
-		Out.debug(mdList.size());
+		List<MethodDescriptor> mdList = Services.Handler.getDescriptor().getMethods();
 		for (MethodDescriptor methodDescriptor : mdList) {
+			
+			handlerDescriptorMap.put(methodDescriptor.getName(), methodDescriptor);
 			
 			try {
 				Class<?> handlerC = Class.forName("handler."+methodDescriptor.getName()+"Handler");
@@ -91,9 +93,9 @@ public class LogicDispatcher implements Runnable {
 				
 				long executeTime = endExecuteTime - startExecuteTime;
 				
-				Packet responsePacket = new Packet(logicPacket.header.sessionID,HeaderType.LoginRes,logicPacket.route,logicPacket.content,logicPacket.channel);
+				Packet responsePacket = new Packet(logicPacket.header.sessionID,HeaderType.LoginRes,logicPacket.route,response.toByteArray(),logicPacket.channel);
 				
-				logicPacket.channel.writeAndFlush(responsePacket);
+				logicPacket.channel.writeAndFlush(responsePacket,logicPacket.channel.voidPromise());
 				
 			} catch (Exception e) {
 				Out.error(String.format("处理句柄【%s】出错 -> %s", logicPacket.route, e.toString()), e);

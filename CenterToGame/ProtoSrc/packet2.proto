@@ -7,12 +7,9 @@ message Test2Request {
 }
 
 message Test2Response {  
-	common.CommonNode testCommonNode = 1; 
+	CommonNode testCommonNode = 1; 
 }
 
-option java_generic_services = true;
 
 
-service Test2Service {
-	rpc Test222 (Test2Request) returns (Test2Response);
-}
+

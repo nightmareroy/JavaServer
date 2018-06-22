@@ -25,12 +25,10 @@ namespace Test {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "Cg1wYWNrZXQyLnByb3RvEgR0ZXN0Ggxjb21tb24ucHJvdG8iHgoMVGVzdDJS",
-            "ZXF1ZXN0Eg4KBnRlc3RJZBgBIAEoBSI7Cg1UZXN0MlJlc3BvbnNlEioKDnRl",
-            "c3RDb21tb25Ob2RlGAEgASgLMhIuY29tbW9uLkNvbW1vbk5vZGUyQgoMVGVz",
-            "dDJTZXJ2aWNlEjIKB1Rlc3QyMjISEi50ZXN0LlRlc3QyUmVxdWVzdBoTLnRl",
-            "c3QuVGVzdDJSZXNwb25zZUIDiAEBYgZwcm90bzM="));
+            "ZXF1ZXN0Eg4KBnRlc3RJZBgBIAEoBSI5Cg1UZXN0MlJlc3BvbnNlEigKDnRl",
+            "c3RDb21tb25Ob2RlGAEgASgLMhAudGVzdC5Db21tb25Ob2RlYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Common.CommonReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::Test.CommonReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Test.Test2Request), global::Test.Test2Request.Parser, new[]{ "TestId" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Test.Test2Response), global::Test.Test2Response.Parser, new[]{ "TestCommonNode" }, null, null, null)
@@ -205,9 +203,9 @@ namespace Test {
 
     /// <summary>Field number for the "testCommonNode" field.</summary>
     public const int TestCommonNodeFieldNumber = 1;
-    private global::Common.CommonNode testCommonNode_;
+    private global::Test.CommonNode testCommonNode_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Common.CommonNode TestCommonNode {
+    public global::Test.CommonNode TestCommonNode {
       get { return testCommonNode_; }
       set {
         testCommonNode_ = value;
@@ -276,7 +274,7 @@ namespace Test {
       }
       if (other.testCommonNode_ != null) {
         if (testCommonNode_ == null) {
-          testCommonNode_ = new global::Common.CommonNode();
+          testCommonNode_ = new global::Test.CommonNode();
         }
         TestCommonNode.MergeFrom(other.TestCommonNode);
       }
@@ -293,7 +291,7 @@ namespace Test {
             break;
           case 10: {
             if (testCommonNode_ == null) {
-              testCommonNode_ = new global::Common.CommonNode();
+              testCommonNode_ = new global::Test.CommonNode();
             }
             input.ReadMessage(testCommonNode_);
             break;

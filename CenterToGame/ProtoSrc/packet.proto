@@ -7,5 +7,9 @@ message TestRequest {
 }
 
 message TestResponse {  
-	common.CommonNode testCommonNode = 1; 
+	CommonNode testCommonNode = 1; 
+}
+
+message TestPushResponse {
+	int32 testId = 1;
 }

@@ -25,13 +25,15 @@ namespace Test {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "CgxwYWNrZXQucHJvdG8SBHRlc3QaDGNvbW1vbi5wcm90byIdCgtUZXN0UmVx",
-            "dWVzdBIOCgZ0ZXN0SWQYASABKAUiOgoMVGVzdFJlc3BvbnNlEioKDnRlc3RD",
-            "b21tb25Ob2RlGAEgASgLMhIuY29tbW9uLkNvbW1vbk5vZGViBnByb3RvMw=="));
+            "dWVzdBIOCgZ0ZXN0SWQYASABKAUiOAoMVGVzdFJlc3BvbnNlEigKDnRlc3RD",
+            "b21tb25Ob2RlGAEgASgLMhAudGVzdC5Db21tb25Ob2RlIiIKEFRlc3RQdXNo",
+            "UmVzcG9uc2USDgoGdGVzdElkGAEgASgFYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Common.CommonReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::Test.CommonReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Test.TestRequest), global::Test.TestRequest.Parser, new[]{ "TestId" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Test.TestResponse), global::Test.TestResponse.Parser, new[]{ "TestCommonNode" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Test.TestResponse), global::Test.TestResponse.Parser, new[]{ "TestCommonNode" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Test.TestPushResponse), global::Test.TestPushResponse.Parser, new[]{ "TestId" }, null, null, null)
           }));
     }
     #endregion
@@ -203,9 +205,9 @@ namespace Test {
 
     /// <summary>Field number for the "testCommonNode" field.</summary>
     public const int TestCommonNodeFieldNumber = 1;
-    private global::Common.CommonNode testCommonNode_;
+    private global::Test.CommonNode testCommonNode_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Common.CommonNode TestCommonNode {
+    public global::Test.CommonNode TestCommonNode {
       get { return testCommonNode_; }
       set {
         testCommonNode_ = value;
@@ -274,7 +276,7 @@ namespace Test {
       }
       if (other.testCommonNode_ != null) {
         if (testCommonNode_ == null) {
-          testCommonNode_ = new global::Common.CommonNode();
+          testCommonNode_ = new global::Test.CommonNode();
         }
         TestCommonNode.MergeFrom(other.TestCommonNode);
       }
@@ -291,9 +293,138 @@ namespace Test {
             break;
           case 10: {
             if (testCommonNode_ == null) {
-              testCommonNode_ = new global::Common.CommonNode();
+              testCommonNode_ = new global::Test.CommonNode();
             }
             input.ReadMessage(testCommonNode_);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class TestPushResponse : pb::IMessage<TestPushResponse> {
+    private static readonly pb::MessageParser<TestPushResponse> _parser = new pb::MessageParser<TestPushResponse>(() => new TestPushResponse());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<TestPushResponse> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Test.PacketReflection.Descriptor.MessageTypes[2]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public TestPushResponse() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public TestPushResponse(TestPushResponse other) : this() {
+      testId_ = other.testId_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public TestPushResponse Clone() {
+      return new TestPushResponse(this);
+    }
+
+    /// <summary>Field number for the "testId" field.</summary>
+    public const int TestIdFieldNumber = 1;
+    private int testId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int TestId {
+      get { return testId_; }
+      set {
+        testId_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as TestPushResponse);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(TestPushResponse other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (TestId != other.TestId) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (TestId != 0) hash ^= TestId.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (TestId != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(TestId);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (TestId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(TestId);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(TestPushResponse other) {
+      if (other == null) {
+        return;
+      }
+      if (other.TestId != 0) {
+        TestId = other.TestId;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            TestId = input.ReadInt32();
             break;
           }
         }

@@ -470,17 +470,17 @@ public final class Packet2 {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>.common.CommonNode testCommonNode = 1;</code>
+     * <code>.test.CommonNode testCommonNode = 1;</code>
      */
     boolean hasTestCommonNode();
     /**
-     * <code>.common.CommonNode testCommonNode = 1;</code>
+     * <code>.test.CommonNode testCommonNode = 1;</code>
      */
-    common.Common.CommonNode getTestCommonNode();
+    test.Common.CommonNode getTestCommonNode();
     /**
-     * <code>.common.CommonNode testCommonNode = 1;</code>
+     * <code>.test.CommonNode testCommonNode = 1;</code>
      */
-    common.Common.CommonNodeOrBuilder getTestCommonNodeOrBuilder();
+    test.Common.CommonNodeOrBuilder getTestCommonNodeOrBuilder();
   }
   /**
    * Protobuf type {@code test.Test2Response}
@@ -529,11 +529,11 @@ public final class Packet2 {
               break;
             }
             case 10: {
-              common.Common.CommonNode.Builder subBuilder = null;
+              test.Common.CommonNode.Builder subBuilder = null;
               if (testCommonNode_ != null) {
                 subBuilder = testCommonNode_.toBuilder();
               }
-              testCommonNode_ = input.readMessage(common.Common.CommonNode.parser(), extensionRegistry);
+              testCommonNode_ = input.readMessage(test.Common.CommonNode.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(testCommonNode_);
                 testCommonNode_ = subBuilder.buildPartial();
@@ -566,23 +566,23 @@ public final class Packet2 {
     }
 
     public static final int TESTCOMMONNODE_FIELD_NUMBER = 1;
-    private common.Common.CommonNode testCommonNode_;
+    private test.Common.CommonNode testCommonNode_;
     /**
-     * <code>.common.CommonNode testCommonNode = 1;</code>
+     * <code>.test.CommonNode testCommonNode = 1;</code>
      */
     public boolean hasTestCommonNode() {
       return testCommonNode_ != null;
     }
     /**
-     * <code>.common.CommonNode testCommonNode = 1;</code>
+     * <code>.test.CommonNode testCommonNode = 1;</code>
      */
-    public common.Common.CommonNode getTestCommonNode() {
-      return testCommonNode_ == null ? common.Common.CommonNode.getDefaultInstance() : testCommonNode_;
+    public test.Common.CommonNode getTestCommonNode() {
+      return testCommonNode_ == null ? test.Common.CommonNode.getDefaultInstance() : testCommonNode_;
     }
     /**
-     * <code>.common.CommonNode testCommonNode = 1;</code>
+     * <code>.test.CommonNode testCommonNode = 1;</code>
      */
-    public common.Common.CommonNodeOrBuilder getTestCommonNodeOrBuilder() {
+    public test.Common.CommonNodeOrBuilder getTestCommonNodeOrBuilder() {
       return getTestCommonNode();
     }
 
@@ -882,29 +882,29 @@ public final class Packet2 {
         return this;
       }
 
-      private common.Common.CommonNode testCommonNode_ = null;
+      private test.Common.CommonNode testCommonNode_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
-          common.Common.CommonNode, common.Common.CommonNode.Builder, common.Common.CommonNodeOrBuilder> testCommonNodeBuilder_;
+          test.Common.CommonNode, test.Common.CommonNode.Builder, test.Common.CommonNodeOrBuilder> testCommonNodeBuilder_;
       /**
-       * <code>.common.CommonNode testCommonNode = 1;</code>
+       * <code>.test.CommonNode testCommonNode = 1;</code>
        */
       public boolean hasTestCommonNode() {
         return testCommonNodeBuilder_ != null || testCommonNode_ != null;
       }
       /**
-       * <code>.common.CommonNode testCommonNode = 1;</code>
+       * <code>.test.CommonNode testCommonNode = 1;</code>
        */
-      public common.Common.CommonNode getTestCommonNode() {
+      public test.Common.CommonNode getTestCommonNode() {
         if (testCommonNodeBuilder_ == null) {
-          return testCommonNode_ == null ? common.Common.CommonNode.getDefaultInstance() : testCommonNode_;
+          return testCommonNode_ == null ? test.Common.CommonNode.getDefaultInstance() : testCommonNode_;
         } else {
           return testCommonNodeBuilder_.getMessage();
         }
       }
       /**
-       * <code>.common.CommonNode testCommonNode = 1;</code>
+       * <code>.test.CommonNode testCommonNode = 1;</code>
        */
-      public Builder setTestCommonNode(common.Common.CommonNode value) {
+      public Builder setTestCommonNode(test.Common.CommonNode value) {
         if (testCommonNodeBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -918,10 +918,10 @@ public final class Packet2 {
         return this;
       }
       /**
-       * <code>.common.CommonNode testCommonNode = 1;</code>
+       * <code>.test.CommonNode testCommonNode = 1;</code>
        */
       public Builder setTestCommonNode(
-          common.Common.CommonNode.Builder builderForValue) {
+          test.Common.CommonNode.Builder builderForValue) {
         if (testCommonNodeBuilder_ == null) {
           testCommonNode_ = builderForValue.build();
           onChanged();
@@ -932,13 +932,13 @@ public final class Packet2 {
         return this;
       }
       /**
-       * <code>.common.CommonNode testCommonNode = 1;</code>
+       * <code>.test.CommonNode testCommonNode = 1;</code>
        */
-      public Builder mergeTestCommonNode(common.Common.CommonNode value) {
+      public Builder mergeTestCommonNode(test.Common.CommonNode value) {
         if (testCommonNodeBuilder_ == null) {
           if (testCommonNode_ != null) {
             testCommonNode_ =
-              common.Common.CommonNode.newBuilder(testCommonNode_).mergeFrom(value).buildPartial();
+              test.Common.CommonNode.newBuilder(testCommonNode_).mergeFrom(value).buildPartial();
           } else {
             testCommonNode_ = value;
           }
@@ -950,7 +950,7 @@ public final class Packet2 {
         return this;
       }
       /**
-       * <code>.common.CommonNode testCommonNode = 1;</code>
+       * <code>.test.CommonNode testCommonNode = 1;</code>
        */
       public Builder clearTestCommonNode() {
         if (testCommonNodeBuilder_ == null) {
@@ -964,33 +964,33 @@ public final class Packet2 {
         return this;
       }
       /**
-       * <code>.common.CommonNode testCommonNode = 1;</code>
+       * <code>.test.CommonNode testCommonNode = 1;</code>
        */
-      public common.Common.CommonNode.Builder getTestCommonNodeBuilder() {
+      public test.Common.CommonNode.Builder getTestCommonNodeBuilder() {
         
         onChanged();
         return getTestCommonNodeFieldBuilder().getBuilder();
       }
       /**
-       * <code>.common.CommonNode testCommonNode = 1;</code>
+       * <code>.test.CommonNode testCommonNode = 1;</code>
        */
-      public common.Common.CommonNodeOrBuilder getTestCommonNodeOrBuilder() {
+      public test.Common.CommonNodeOrBuilder getTestCommonNodeOrBuilder() {
         if (testCommonNodeBuilder_ != null) {
           return testCommonNodeBuilder_.getMessageOrBuilder();
         } else {
           return testCommonNode_ == null ?
-              common.Common.CommonNode.getDefaultInstance() : testCommonNode_;
+              test.Common.CommonNode.getDefaultInstance() : testCommonNode_;
         }
       }
       /**
-       * <code>.common.CommonNode testCommonNode = 1;</code>
+       * <code>.test.CommonNode testCommonNode = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          common.Common.CommonNode, common.Common.CommonNode.Builder, common.Common.CommonNodeOrBuilder> 
+          test.Common.CommonNode, test.Common.CommonNode.Builder, test.Common.CommonNodeOrBuilder> 
           getTestCommonNodeFieldBuilder() {
         if (testCommonNodeBuilder_ == null) {
           testCommonNodeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              common.Common.CommonNode, common.Common.CommonNode.Builder, common.Common.CommonNodeOrBuilder>(
+              test.Common.CommonNode, test.Common.CommonNode.Builder, test.Common.CommonNodeOrBuilder>(
                   getTestCommonNode(),
                   getParentForChildren(),
                   isClean());
@@ -1047,238 +1047,6 @@ public final class Packet2 {
 
   }
 
-  /**
-   * Protobuf service {@code test.Test2Service}
-   */
-  public static abstract class Test2Service
-      implements com.google.protobuf.Service {
-    protected Test2Service() {}
-
-    public interface Interface {
-      /**
-       * <code>rpc Test222(.test.Test2Request) returns (.test.Test2Response);</code>
-       */
-      public abstract void test222(
-          com.google.protobuf.RpcController controller,
-          test.Packet2.Test2Request request,
-          com.google.protobuf.RpcCallback<test.Packet2.Test2Response> done);
-
-    }
-
-    public static com.google.protobuf.Service newReflectiveService(
-        final Interface impl) {
-      return new Test2Service() {
-        @java.lang.Override
-        public  void test222(
-            com.google.protobuf.RpcController controller,
-            test.Packet2.Test2Request request,
-            com.google.protobuf.RpcCallback<test.Packet2.Test2Response> done) {
-          impl.test222(controller, request, done);
-        }
-
-      };
-    }
-
-    public static com.google.protobuf.BlockingService
-        newReflectiveBlockingService(final BlockingInterface impl) {
-      return new com.google.protobuf.BlockingService() {
-        public final com.google.protobuf.Descriptors.ServiceDescriptor
-            getDescriptorForType() {
-          return getDescriptor();
-        }
-
-        public final com.google.protobuf.Message callBlockingMethod(
-            com.google.protobuf.Descriptors.MethodDescriptor method,
-            com.google.protobuf.RpcController controller,
-            com.google.protobuf.Message request)
-            throws com.google.protobuf.ServiceException {
-          if (method.getService() != getDescriptor()) {
-            throw new java.lang.IllegalArgumentException(
-              "Service.callBlockingMethod() given method descriptor for " +
-              "wrong service type.");
-          }
-          switch(method.getIndex()) {
-            case 0:
-              return impl.test222(controller, (test.Packet2.Test2Request)request);
-            default:
-              throw new java.lang.AssertionError("Can't get here.");
-          }
-        }
-
-        public final com.google.protobuf.Message
-            getRequestPrototype(
-            com.google.protobuf.Descriptors.MethodDescriptor method) {
-          if (method.getService() != getDescriptor()) {
-            throw new java.lang.IllegalArgumentException(
-              "Service.getRequestPrototype() given method " +
-              "descriptor for wrong service type.");
-          }
-          switch(method.getIndex()) {
-            case 0:
-              return test.Packet2.Test2Request.getDefaultInstance();
-            default:
-              throw new java.lang.AssertionError("Can't get here.");
-          }
-        }
-
-        public final com.google.protobuf.Message
-            getResponsePrototype(
-            com.google.protobuf.Descriptors.MethodDescriptor method) {
-          if (method.getService() != getDescriptor()) {
-            throw new java.lang.IllegalArgumentException(
-              "Service.getResponsePrototype() given method " +
-              "descriptor for wrong service type.");
-          }
-          switch(method.getIndex()) {
-            case 0:
-              return test.Packet2.Test2Response.getDefaultInstance();
-            default:
-              throw new java.lang.AssertionError("Can't get here.");
-          }
-        }
-
-      };
-    }
-
-    /**
-     * <code>rpc Test222(.test.Test2Request) returns (.test.Test2Response);</code>
-     */
-    public abstract void test222(
-        com.google.protobuf.RpcController controller,
-        test.Packet2.Test2Request request,
-        com.google.protobuf.RpcCallback<test.Packet2.Test2Response> done);
-
-    public static final
-        com.google.protobuf.Descriptors.ServiceDescriptor
-        getDescriptor() {
-      return test.Packet2.getDescriptor().getServices().get(0);
-    }
-    public final com.google.protobuf.Descriptors.ServiceDescriptor
-        getDescriptorForType() {
-      return getDescriptor();
-    }
-
-    public final void callMethod(
-        com.google.protobuf.Descriptors.MethodDescriptor method,
-        com.google.protobuf.RpcController controller,
-        com.google.protobuf.Message request,
-        com.google.protobuf.RpcCallback<
-          com.google.protobuf.Message> done) {
-      if (method.getService() != getDescriptor()) {
-        throw new java.lang.IllegalArgumentException(
-          "Service.callMethod() given method descriptor for wrong " +
-          "service type.");
-      }
-      switch(method.getIndex()) {
-        case 0:
-          this.test222(controller, (test.Packet2.Test2Request)request,
-            com.google.protobuf.RpcUtil.<test.Packet2.Test2Response>specializeCallback(
-              done));
-          return;
-        default:
-          throw new java.lang.AssertionError("Can't get here.");
-      }
-    }
-
-    public final com.google.protobuf.Message
-        getRequestPrototype(
-        com.google.protobuf.Descriptors.MethodDescriptor method) {
-      if (method.getService() != getDescriptor()) {
-        throw new java.lang.IllegalArgumentException(
-          "Service.getRequestPrototype() given method " +
-          "descriptor for wrong service type.");
-      }
-      switch(method.getIndex()) {
-        case 0:
-          return test.Packet2.Test2Request.getDefaultInstance();
-        default:
-          throw new java.lang.AssertionError("Can't get here.");
-      }
-    }
-
-    public final com.google.protobuf.Message
-        getResponsePrototype(
-        com.google.protobuf.Descriptors.MethodDescriptor method) {
-      if (method.getService() != getDescriptor()) {
-        throw new java.lang.IllegalArgumentException(
-          "Service.getResponsePrototype() given method " +
-          "descriptor for wrong service type.");
-      }
-      switch(method.getIndex()) {
-        case 0:
-          return test.Packet2.Test2Response.getDefaultInstance();
-        default:
-          throw new java.lang.AssertionError("Can't get here.");
-      }
-    }
-
-    public static Stub newStub(
-        com.google.protobuf.RpcChannel channel) {
-      return new Stub(channel);
-    }
-
-    public static final class Stub extends test.Packet2.Test2Service implements Interface {
-      private Stub(com.google.protobuf.RpcChannel channel) {
-        this.channel = channel;
-      }
-
-      private final com.google.protobuf.RpcChannel channel;
-
-      public com.google.protobuf.RpcChannel getChannel() {
-        return channel;
-      }
-
-      public  void test222(
-          com.google.protobuf.RpcController controller,
-          test.Packet2.Test2Request request,
-          com.google.protobuf.RpcCallback<test.Packet2.Test2Response> done) {
-        channel.callMethod(
-          getDescriptor().getMethods().get(0),
-          controller,
-          request,
-          test.Packet2.Test2Response.getDefaultInstance(),
-          com.google.protobuf.RpcUtil.generalizeCallback(
-            done,
-            test.Packet2.Test2Response.class,
-            test.Packet2.Test2Response.getDefaultInstance()));
-      }
-    }
-
-    public static BlockingInterface newBlockingStub(
-        com.google.protobuf.BlockingRpcChannel channel) {
-      return new BlockingStub(channel);
-    }
-
-    public interface BlockingInterface {
-      public test.Packet2.Test2Response test222(
-          com.google.protobuf.RpcController controller,
-          test.Packet2.Test2Request request)
-          throws com.google.protobuf.ServiceException;
-    }
-
-    private static final class BlockingStub implements BlockingInterface {
-      private BlockingStub(com.google.protobuf.BlockingRpcChannel channel) {
-        this.channel = channel;
-      }
-
-      private final com.google.protobuf.BlockingRpcChannel channel;
-
-      public test.Packet2.Test2Response test222(
-          com.google.protobuf.RpcController controller,
-          test.Packet2.Test2Request request)
-          throws com.google.protobuf.ServiceException {
-        return (test.Packet2.Test2Response) channel.callBlockingMethod(
-          getDescriptor().getMethods().get(0),
-          controller,
-          request,
-          test.Packet2.Test2Response.getDefaultInstance());
-      }
-
-    }
-
-    // @@protoc_insertion_point(class_scope:test.Test2Service)
-  }
-
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_test_Test2Request_descriptor;
   private static final 
@@ -1299,11 +1067,9 @@ public final class Packet2 {
   static {
     java.lang.String[] descriptorData = {
       "\n\rpacket2.proto\022\004test\032\014common.proto\"\036\n\014T" +
-      "est2Request\022\016\n\006testId\030\001 \001(\005\";\n\rTest2Resp" +
-      "onse\022*\n\016testCommonNode\030\001 \001(\0132\022.common.Co" +
-      "mmonNode2B\n\014Test2Service\0222\n\007Test222\022\022.te" +
-      "st.Test2Request\032\023.test.Test2ResponseB\003\210\001" +
-      "\001b\006proto3"
+      "est2Request\022\016\n\006testId\030\001 \001(\005\"9\n\rTest2Resp" +
+      "onse\022(\n\016testCommonNode\030\001 \001(\0132\020.test.Comm" +
+      "onNodeb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1316,7 +1082,7 @@ public final class Packet2 {
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          common.Common.getDescriptor(),
+          test.Common.getDescriptor(),
         }, assigner);
     internal_static_test_Test2Request_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -1330,7 +1096,7 @@ public final class Packet2 {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_test_Test2Response_descriptor,
         new java.lang.String[] { "TestCommonNode", });
-    common.Common.getDescriptor();
+    test.Common.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

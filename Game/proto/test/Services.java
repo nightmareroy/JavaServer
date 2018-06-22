@@ -15,11 +15,11 @@ public final class Services {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   /**
-   * Protobuf service {@code test.Handle}
+   * Protobuf service {@code test.Handler}
    */
-  public static abstract class Handle
+  public static abstract class Handler
       implements com.google.protobuf.Service {
-    protected Handle() {}
+    protected Handler() {}
 
     public interface Interface {
       /**
@@ -38,11 +38,19 @@ public final class Services {
           test.Packet2.Test2Request request,
           com.google.protobuf.RpcCallback<test.Packet2.Test2Response> done);
 
+      /**
+       * <code>rpc TestPush(.test.Void) returns (.test.TestPushResponse);</code>
+       */
+      public abstract void testPush(
+          com.google.protobuf.RpcController controller,
+          test.Common.Void request,
+          com.google.protobuf.RpcCallback<test.Packet.TestPushResponse> done);
+
     }
 
     public static com.google.protobuf.Service newReflectiveService(
         final Interface impl) {
-      return new Handle() {
+      return new Handler() {
         @java.lang.Override
         public  void test(
             com.google.protobuf.RpcController controller,
@@ -57,6 +65,14 @@ public final class Services {
             test.Packet2.Test2Request request,
             com.google.protobuf.RpcCallback<test.Packet2.Test2Response> done) {
           impl.test222(controller, request, done);
+        }
+
+        @java.lang.Override
+        public  void testPush(
+            com.google.protobuf.RpcController controller,
+            test.Common.Void request,
+            com.google.protobuf.RpcCallback<test.Packet.TestPushResponse> done) {
+          impl.testPush(controller, request, done);
         }
 
       };
@@ -85,6 +101,8 @@ public final class Services {
               return impl.test(controller, (test.Packet.TestRequest)request);
             case 1:
               return impl.test222(controller, (test.Packet2.Test2Request)request);
+            case 2:
+              return impl.testPush(controller, (test.Common.Void)request);
             default:
               throw new java.lang.AssertionError("Can't get here.");
           }
@@ -103,6 +121,8 @@ public final class Services {
               return test.Packet.TestRequest.getDefaultInstance();
             case 1:
               return test.Packet2.Test2Request.getDefaultInstance();
+            case 2:
+              return test.Common.Void.getDefaultInstance();
             default:
               throw new java.lang.AssertionError("Can't get here.");
           }
@@ -121,6 +141,8 @@ public final class Services {
               return test.Packet.TestResponse.getDefaultInstance();
             case 1:
               return test.Packet2.Test2Response.getDefaultInstance();
+            case 2:
+              return test.Packet.TestPushResponse.getDefaultInstance();
             default:
               throw new java.lang.AssertionError("Can't get here.");
           }
@@ -144,6 +166,14 @@ public final class Services {
         com.google.protobuf.RpcController controller,
         test.Packet2.Test2Request request,
         com.google.protobuf.RpcCallback<test.Packet2.Test2Response> done);
+
+    /**
+     * <code>rpc TestPush(.test.Void) returns (.test.TestPushResponse);</code>
+     */
+    public abstract void testPush(
+        com.google.protobuf.RpcController controller,
+        test.Common.Void request,
+        com.google.protobuf.RpcCallback<test.Packet.TestPushResponse> done);
 
     public static final
         com.google.protobuf.Descriptors.ServiceDescriptor
@@ -177,6 +207,11 @@ public final class Services {
             com.google.protobuf.RpcUtil.<test.Packet2.Test2Response>specializeCallback(
               done));
           return;
+        case 2:
+          this.testPush(controller, (test.Common.Void)request,
+            com.google.protobuf.RpcUtil.<test.Packet.TestPushResponse>specializeCallback(
+              done));
+          return;
         default:
           throw new java.lang.AssertionError("Can't get here.");
       }
@@ -195,6 +230,8 @@ public final class Services {
           return test.Packet.TestRequest.getDefaultInstance();
         case 1:
           return test.Packet2.Test2Request.getDefaultInstance();
+        case 2:
+          return test.Common.Void.getDefaultInstance();
         default:
           throw new java.lang.AssertionError("Can't get here.");
       }
@@ -213,6 +250,8 @@ public final class Services {
           return test.Packet.TestResponse.getDefaultInstance();
         case 1:
           return test.Packet2.Test2Response.getDefaultInstance();
+        case 2:
+          return test.Packet.TestPushResponse.getDefaultInstance();
         default:
           throw new java.lang.AssertionError("Can't get here.");
       }
@@ -223,7 +262,7 @@ public final class Services {
       return new Stub(channel);
     }
 
-    public static final class Stub extends test.Services.Handle implements Interface {
+    public static final class Stub extends test.Services.Handler implements Interface {
       private Stub(com.google.protobuf.RpcChannel channel) {
         this.channel = channel;
       }
@@ -263,6 +302,21 @@ public final class Services {
             test.Packet2.Test2Response.class,
             test.Packet2.Test2Response.getDefaultInstance()));
       }
+
+      public  void testPush(
+          com.google.protobuf.RpcController controller,
+          test.Common.Void request,
+          com.google.protobuf.RpcCallback<test.Packet.TestPushResponse> done) {
+        channel.callMethod(
+          getDescriptor().getMethods().get(2),
+          controller,
+          request,
+          test.Packet.TestPushResponse.getDefaultInstance(),
+          com.google.protobuf.RpcUtil.generalizeCallback(
+            done,
+            test.Packet.TestPushResponse.class,
+            test.Packet.TestPushResponse.getDefaultInstance()));
+      }
     }
 
     public static BlockingInterface newBlockingStub(
@@ -279,6 +333,11 @@ public final class Services {
       public test.Packet2.Test2Response test222(
           com.google.protobuf.RpcController controller,
           test.Packet2.Test2Request request)
+          throws com.google.protobuf.ServiceException;
+
+      public test.Packet.TestPushResponse testPush(
+          com.google.protobuf.RpcController controller,
+          test.Common.Void request)
           throws com.google.protobuf.ServiceException;
     }
 
@@ -312,9 +371,21 @@ public final class Services {
           test.Packet2.Test2Response.getDefaultInstance());
       }
 
+
+      public test.Packet.TestPushResponse testPush(
+          com.google.protobuf.RpcController controller,
+          test.Common.Void request)
+          throws com.google.protobuf.ServiceException {
+        return (test.Packet.TestPushResponse) channel.callBlockingMethod(
+          getDescriptor().getMethods().get(2),
+          controller,
+          request,
+          test.Packet.TestPushResponse.getDefaultInstance());
+      }
+
     }
 
-    // @@protoc_insertion_point(class_scope:test.Handle)
+    // @@protoc_insertion_point(class_scope:test.Handler)
   }
 
 
@@ -326,11 +397,12 @@ public final class Services {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\016services.proto\022\004test\032\014packet.proto\032\rpa" +
-      "cket2.proto2k\n\006Handle\022-\n\004Test\022\021.test.Tes" +
-      "tRequest\032\022.test.TestResponse\0222\n\007Test222\022" +
-      "\022.test.Test2Request\032\023.test.Test2Response" +
-      "B\003\210\001\001b\006proto3"
+      "\n\016services.proto\022\004test\032\014common.proto\032\014pa" +
+      "cket.proto\032\rpacket2.proto2\234\001\n\007Handler\022-\n" +
+      "\004Test\022\021.test.TestRequest\032\022.test.TestResp" +
+      "onse\0222\n\007Test222\022\022.test.Test2Request\032\023.te" +
+      "st.Test2Response\022.\n\010TestPush\022\n.test.Void" +
+      "\032\026.test.TestPushResponseB\003\210\001\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -343,9 +415,11 @@ public final class Services {
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          test.Common.getDescriptor(),
           test.Packet.getDescriptor(),
           test.Packet2.getDescriptor(),
         }, assigner);
+    test.Common.getDescriptor();
     test.Packet.getDescriptor();
     test.Packet2.getDescriptor();
   }

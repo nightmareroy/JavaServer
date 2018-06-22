@@ -24,12 +24,14 @@ namespace Test {
     static ServicesReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Cg5zZXJ2aWNlcy5wcm90bxIEdGVzdBoMcGFja2V0LnByb3RvGg1wYWNrZXQy",
-            "LnByb3RvMmsKBkhhbmRsZRItCgRUZXN0EhEudGVzdC5UZXN0UmVxdWVzdBoS",
-            "LnRlc3QuVGVzdFJlc3BvbnNlEjIKB1Rlc3QyMjISEi50ZXN0LlRlc3QyUmVx",
-            "dWVzdBoTLnRlc3QuVGVzdDJSZXNwb25zZUIDiAEBYgZwcm90bzM="));
+            "Cg5zZXJ2aWNlcy5wcm90bxIEdGVzdBoMY29tbW9uLnByb3RvGgxwYWNrZXQu",
+            "cHJvdG8aDXBhY2tldDIucHJvdG8ynAEKB0hhbmRsZXISLQoEVGVzdBIRLnRl",
+            "c3QuVGVzdFJlcXVlc3QaEi50ZXN0LlRlc3RSZXNwb25zZRIyCgdUZXN0MjIy",
+            "EhIudGVzdC5UZXN0MlJlcXVlc3QaEy50ZXN0LlRlc3QyUmVzcG9uc2USLgoI",
+            "VGVzdFB1c2gSCi50ZXN0LlZvaWQaFi50ZXN0LlRlc3RQdXNoUmVzcG9uc2VC",
+            "A4gBAWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Test.PacketReflection.Descriptor, global::Test.Packet2Reflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::Test.CommonReflection.Descriptor, global::Test.PacketReflection.Descriptor, global::Test.Packet2Reflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null));
     }
     #endregion
