@@ -41,7 +41,7 @@ public class Decoder extends LengthFieldBasedFrameDecoder {
 		Header header=new Header();
 		header.crcCode=frame.readInt();
 		header.length=frame.readInt();
-		header.sessionID=frame.readLong();
+		//header.sessionID=frame.readLong();
 		header.type=frame.readByte();
 		
 		byte[] body=new byte[header.length];
@@ -63,10 +63,10 @@ public class Decoder extends LengthFieldBasedFrameDecoder {
 			throw new Exception("找不到header type定义！");
 		}
 		switch (headerType) {
-		case WorkReq:
+		case LogicReq:
 			
 			break;
-		case WorkRes:
+		case LogicRes:
 					
 			break;
 		case WorkOneWay:

@@ -13,13 +13,13 @@ public final class Packet{
     
     public Packet(HeaderType headerType) {
     	this.body=new byte[0];
-		this.header=new Header(body.length,0L,headerType);
+		this.header=new Header(body.length,headerType);
 		
 	}
     
-    public Packet(long sessionID,HeaderType headerType,byte[] body) {
+    public Packet(HeaderType headerType,byte[] body) {
     	this.body=body;
-		this.header=new Header(body.length,sessionID,headerType);
+		this.header=new Header(body.length,headerType);
 		
 	}
 

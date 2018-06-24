@@ -1,8 +1,9 @@
-package client.center;
+package game;
 
 import java.util.List;
 import java.util.Map;
 
+import common.Out;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
@@ -20,11 +21,10 @@ public final class Encoder extends MessageToByteEncoder<Packet> {
 		ByteBuf sendBuf = Unpooled.buffer();
 		sendBuf.writeInt(msg.header.crcCode);
 		sendBuf.writeInt(msg.header.length);
-		//sendBuf.writeLong(msg.header.sessionID);
 		sendBuf.writeByte(msg.header.type);
 		sendBuf.writeBytes(msg.body);
-
 		out.writeBytes(sendBuf);
+		
 	}
 
 }

@@ -1,11 +1,9 @@
-package client.center;
+package game;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import client.center.Header.HeaderType;
 import common.Config;
-import common.Out;
 
 public final class Header {
 	
@@ -52,6 +50,10 @@ public final class Header {
 	
 	public static int getLengthAdjustment() {
 		return (Byte.SIZE)/8;
+	}
+	
+	public int getBodyLength() {
+		return this.length-(Integer.SIZE+Integer.SIZE+Byte.SIZE)/8;
 	}
 	
 //	public static int getInitialBytesToStrip() {
