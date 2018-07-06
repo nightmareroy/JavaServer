@@ -1,0 +1,14 @@
+syntax = "proto3";
+package protoCenterGame;
+
+message TestRequest {  
+	int32 testId = 1; 
+}
+
+message TestResponse {  
+	
+}
+
+message TestPushResponse {
+	int32 testId = 1;
+}

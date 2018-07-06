@@ -1,17 +1,8 @@
 package main;
 
-import com.google.protobuf.Descriptors.Descriptor;
-import com.google.protobuf.Descriptors.MethodDescriptor;
 
-import common.CallBackManager;
-import common.Config;
-import common.Mysql;
-import common.Out;
-import game.LogicDispatcher;
-import game.LoginServer;
-import io.netty.util.internal.shaded.org.jctools.queues.MessagePassingQueue.Consumer;
-import test.Services;
-import world.World;
+import managerWorld.CenterWorld;
+import serverGame.LoginServer;
 
 
 /**
@@ -32,7 +23,7 @@ public class CenterMain {
 		
 		//Descriptor descriptor = Test2Service.getDescriptor().getMethods().get(0).getInputType();
 		
-		World.getInstance().init();
+		CenterWorld.getInstance().init();
         
 //        Out.debug(md.getInputType());
     }

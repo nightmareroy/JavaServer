@@ -23,7 +23,7 @@ public class DataCOIniter {
 		try {
 //			Class.forName("com.mysql.cj.jdbc.Driver");
 
-			Connection connection=DriverManager.getConnection(Config.Mysql.url, Config.Mysql.user, Config.Mysql.pwd);
+			Connection connection=DriverManager.getConnection(Config.Mysql.Url, Config.Mysql.User, Config.Mysql.Pwd);
 			if(!connection.isClosed())
 			{
 				Out.info("连接数据库成功！");

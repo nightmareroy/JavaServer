@@ -1,1 +1,9 @@
-/game/
+/common/
+/handlerInterfaces/
+/main/
+/managerGameClient/
+/managerProtoServices/
+/managerWorld/
+/protoCenterGame/
+/serverGame/
+/taskManager/

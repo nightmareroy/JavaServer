@@ -1,31 +1,33 @@
 {
 	"Mysql": {
-		"user": "liyue",
-		"pwd": "liyue",
-		"url": "jdbc:mysql://127.0.0.1:3306/test?useSSL=false&serverTimezone=GMT"
+		"User": "liyue",
+		"Pwd": "liyue",
+		"Url": "jdbc:mysql://127.0.0.1:3306/test?useSSL=false&serverTimezone=GMT"
 	},
-	"CenterServer": {
-		"port": 10050,
+	"CenterGameNet": {
 		"Packet": {
-			"maxFrameLength":1048576,
-			"lengthFieldOffset":4,
-			"lengthFieldLength":4,
-			"crcCode":1024
+			"MaxFrameLength":1048576,
+			"LengthFieldOffset":4,
+			"LengthFieldLength":4,
+			"CrcCode":1024
 		},
-		"ReadTimeOutSecond":10,
-		"WhiteList": {
-			"Enable":true,
-			"List":["127.0.0.1","localhost"]
-		},
-		"DispatcherQueue": {
-			"ThreadCount": 3,
-			"Capacity": 100000,
-			"WarnCount": 80000
+		"CenterServer": {
+			"Port": 10050,
+			"ReadTimeOutSecond":180,
+			"WhiteList": {
+				"Enable":true,
+				"List":["127.0.0.1","localhost"]
+			},
+			"DispatcherQueue": {
+				"ThreadCount": 3,
+				"Capacity": 100000,
+				"WarnCount": 80000
+			},
+			"LeaveClientsIntval":300
 		}
-		
 	},
 	"CallBackManager": {
-		"threadPoolNum": 10
+		"ThreadPoolNum": 10
 	},
 	"DataCOPath": "dataCOs"
 }

@@ -11,7 +11,7 @@ apply plugin: 'java'
 //mainClassName = 'src.test.java.test.test'
 
 sourceSets {  
-    main.java.srcDirs = ['src','configs','proto']  
+    main.java.srcDirs = ['common','configs','handler','main','proto','client','manager']  
     //main.resources.srcDirs = ['resources']
 }
 
@@ -22,12 +22,12 @@ repositories {
     //jcenter()
     
     flatDir {    
-        // 先看下build.gradle文件所在目录下的 libs目录中有没有
+        // 鍏堢湅涓媌uild.gradle鏂囦欢鎵�鍦ㄧ洰褰曚笅鐨� libs鐩綍涓湁娌℃湁
         dirs 'libs'
     }
     
     maven {        
-		//如果目录中木有，则找url对应的maven仓库，下面是阿里的maven仓库，速度杠杆的。
+		//濡傛灉鐩綍涓湪鏈夛紝鍒欐壘url瀵瑰簲鐨刴aven浠撳簱锛屼笅闈㈡槸闃块噷鐨刴aven浠撳簱锛岄�熷害鏉犳潌鐨勩��
 		url "http://maven.aliyun.com/nexus/content/groups/public/"
 	}
     mavenCentral()
@@ -53,7 +53,8 @@ dependencies {
     // https://mvnrepository.com/artifact/com.google.protobuf/protobuf-java
 	compile group: 'com.google.protobuf', name: 'protobuf-java', version: '3.5.1'
 
-    
+    // https://mvnrepository.com/artifact/org.mongodb/mongo-java-driver
+	compile group: 'org.mongodb', name: 'mongo-java-driver', version: '3.8.0'
 }
 
 jar {
@@ -63,7 +64,7 @@ jar {
     }
     
     from {
-        //添加依懒到打包文件
+        //娣诲姞渚濇噿鍒版墦鍖呮枃浠�
         configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
         //configurations.runtime.collect{zipTree(it)}
     }

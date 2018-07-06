@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+import "common.proto";
+import "test.proto";
+import "register.proto";
+
+package protoCenterGame;
+
+option java_generic_services = true;
+service Handler {
+	rpc Test (TestRequest) returns (TestResponse);
+	rpc TestPush (Void) returns (TestPushResponse);
+	
+	rpc BindMsg (BindMsgRequest) returns (Void);
+}

@@ -9,7 +9,7 @@ using pb = global::Google.Protobuf;
 using pbc = global::Google.Protobuf.Collections;
 using pbr = global::Google.Protobuf.Reflection;
 using scg = global::System.Collections.Generic;
-namespace Test {
+namespace ProtoCenterGame {
 
   /// <summary>Holder for reflection information generated from services.proto</summary>
   public static partial class ServicesReflection {
@@ -24,14 +24,15 @@ namespace Test {
     static ServicesReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Cg5zZXJ2aWNlcy5wcm90bxIEdGVzdBoMY29tbW9uLnByb3RvGgxwYWNrZXQu",
-            "cHJvdG8aDXBhY2tldDIucHJvdG8ynAEKB0hhbmRsZXISLQoEVGVzdBIRLnRl",
-            "c3QuVGVzdFJlcXVlc3QaEi50ZXN0LlRlc3RSZXNwb25zZRIyCgdUZXN0MjIy",
-            "EhIudGVzdC5UZXN0MlJlcXVlc3QaEy50ZXN0LlRlc3QyUmVzcG9uc2USLgoI",
-            "VGVzdFB1c2gSCi50ZXN0LlZvaWQaFi50ZXN0LlRlc3RQdXNoUmVzcG9uc2VC",
-            "A4gBAWIGcHJvdG8z"));
+            "Cg5zZXJ2aWNlcy5wcm90bxIPcHJvdG9DZW50ZXJHYW1lGgxjb21tb24ucHJv",
+            "dG8aCnRlc3QucHJvdG8aDnJlZ2lzdGVyLnByb3RvMtcBCgdIYW5kbGVyEkMK",
+            "BFRlc3QSHC5wcm90b0NlbnRlckdhbWUuVGVzdFJlcXVlc3QaHS5wcm90b0Nl",
+            "bnRlckdhbWUuVGVzdFJlc3BvbnNlEkQKCFRlc3RQdXNoEhUucHJvdG9DZW50",
+            "ZXJHYW1lLlZvaWQaIS5wcm90b0NlbnRlckdhbWUuVGVzdFB1c2hSZXNwb25z",
+            "ZRJBCgdCaW5kTXNnEh8ucHJvdG9DZW50ZXJHYW1lLkJpbmRNc2dSZXF1ZXN0",
+            "GhUucHJvdG9DZW50ZXJHYW1lLlZvaWRCA4gBAWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Test.CommonReflection.Descriptor, global::Test.PacketReflection.Descriptor, global::Test.Packet2Reflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::ProtoCenterGame.CommonReflection.Descriptor, global::ProtoCenterGame.TestReflection.Descriptor, global::ProtoCenterGame.RegisterReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null));
     }
     #endregion
