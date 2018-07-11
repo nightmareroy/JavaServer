@@ -1,4 +1,4 @@
-package serverGame;
+package serverLogin;
 
 import java.net.InetSocketAddress;
 import java.nio.charset.Charset;

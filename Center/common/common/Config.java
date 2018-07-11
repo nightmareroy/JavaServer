@@ -31,4 +31,9 @@ public class Config {
 		public static final String Pwd = "liyue";
 		public static final String Url = "jdbc:mysql://127.0.0.1:3306/test?useSSL=false&serverTimezone=GMT";
 	}
+	public static class MongoDB {
+		public static final int Port = 27017;
+		public static final String DatabaseName = "test";
+		public static final String Url = "localhost";
+	}
 }

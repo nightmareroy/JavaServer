@@ -4,6 +4,11 @@
 		"Pwd": "liyue",
 		"Url": "jdbc:mysql://127.0.0.1:3306/test?useSSL=false&serverTimezone=GMT"
 	},
+	"MongoDB": {
+		"Url": "localhost",
+		"Port": 27017,
+		"DatabaseName": "test"
+	},
 	"CenterGameNet": {
 		"Packet": {
 			"MaxFrameLength":1048576,

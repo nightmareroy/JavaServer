@@ -1,6 +1,7 @@
 package main;
 
 
+import managerDB.DBManager;
 import managerWorld.CenterWorld;
 import serverGame.LoginServer;
 
@@ -22,6 +23,8 @@ public class CenterMain {
 		LoginServer.start();
 		
 		//Descriptor descriptor = Test2Service.getDescriptor().getMethods().get(0).getInputType();
+		
+		DBManager.getInstance().init();
 		
 		CenterWorld.getInstance().init();
         

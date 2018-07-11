@@ -1,9 +1,6 @@
-/common/
-/handlerInterfaces/
-/main/
+/util/
+/managerDB/
+/dbUtil/
 /managerGameClient/
-/managerProtoServices/
-/managerWorld/
-/protoCenterGame/
 /serverGame/
-/taskManager/
+/serverLogin/

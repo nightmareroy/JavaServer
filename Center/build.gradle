@@ -11,7 +11,7 @@ apply plugin: 'java'
 //mainClassName = 'src.test.java.test.test'
 
 sourceSets {  
-    main.java.srcDirs = ['common','configs','handler','main','proto','server','manager']  
+    main.java.srcDirs = ['common','configs','handler','main','proto','server','manager','db']  
     //main.resources.srcDirs = ['resources']
 }
 
@@ -67,6 +67,9 @@ dependencies {
 
     // https://mvnrepository.com/artifact/org.mongodb/mongo-java-driver
 	compile group: 'org.mongodb', name: 'mongo-java-driver', version: '3.8.0'
+    
+    // https://mvnrepository.com/artifact/commons-beanutils/commons-beanutils
+	compile group: 'commons-beanutils', name: 'commons-beanutils', version: '1.9.3'
     
 }
 
